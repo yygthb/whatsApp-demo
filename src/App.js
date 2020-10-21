@@ -1,7 +1,10 @@
 import React, {useState} from 'react';
 import './App.css';
-import MainPage from './components/MainPage'
 
+import MainPage from './components/MainPage'
+import Context from './context'
+
+// create state - array of dialogs
 function createDialogs (num) {
   const arr = []
   for (let i = 1; i <= num; i++) {
@@ -22,14 +25,16 @@ function App() {
   //   {userId: 2, userName: `Name 2`},
   //   {userId: 3, userName: `Name 3`},
   // ])
-  const [dialogs, setDialog] = useState(createDialogs(5))
+  const [dialogs, setDialog] = useState(createDialogs(15))
 
   return (
-    <div className="page__background">
-      <span></span>
-      <span></span>
-      <MainPage dialogs={dialogs}/>
-    </div>
+    <Context.Provider value={{dialogs}}>
+      <div className="page__background">
+        <span></span>
+        <span></span>
+        <MainPage dialogs={dialogs}/>
+      </div>
+    </Context.Provider>
   )
 }
 

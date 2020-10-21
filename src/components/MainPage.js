@@ -4,10 +4,10 @@ import './MainPage.css'
 import Content from './Content/Content'
 import Sidebar from './Sidebar/Sidebar'
 
-const MainPage = (props) => {
+const MainPage = () => {
   return (
     <div className="page__wrap">
-      <Sidebar dialogs={props.dialogs}/>
+      <Sidebar />
       <Content />
     </div>
   )

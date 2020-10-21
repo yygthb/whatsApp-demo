@@ -1,11 +1,11 @@
-import React from 'react'
-import Dialog from './Dialog/Dialog'
-
+import React, {useContext} from 'react'
 import './Dialogs.css'
+import Dialog from './Dialog/Dialog'
+import Context from '../../../context'
 
-const Dialogs = ({dialogs}) => {
+const Dialogs = () => {
 
-  console.log('dialogs: ', dialogs)
+  const {dialogs} = useContext(Context)
 
   return (
     <ul className="dialogs__wrap">

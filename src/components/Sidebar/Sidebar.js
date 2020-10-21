@@ -5,13 +5,13 @@ import Header from './Header/Header'
 import SearchField from './SearchField/SearchField'
 import Dialogs from './Dialogs/Dialogs'
 
-const Sidebar = (props) => {
+const Sidebar = () => {
   
   return (
     <div className="sidebar">
       <Header />
       <SearchField />
-      <Dialogs dialogs={props.dialogs}/>
+      <Dialogs />
     </div>
   )
 }
