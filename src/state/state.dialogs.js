@@ -11,7 +11,7 @@ export default function createDialogs (num) {
         // userName: `Name ${i}`
         userName: faker.name.findName(),
         userAvatar: faker.image.avatar(),
-        // userLastMessage: faker.lorem.paragraph(),
+        userLastMessage: faker.lorem.paragraph(),
       }
     )
   }

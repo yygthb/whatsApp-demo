@@ -3,9 +3,18 @@ import './Dialog.css'
 
 const avatarDefault = '/images/avatar-default.png'
 
-const Dialog = ({dialog}) => {
+// if message > 28 symbs, add ... at the end
+function cutLastMessage(str) {
+  console.log(`${str}: ${str.length} symb`)
+  let cut = ''
+  if (str.length > 28) {
+    cut = str.slice(0, 27) + ' ...'
+    return cut
+  }
+  return str
+}
 
-  console.log('avatar: ', dialog.userAvatar)
+const Dialog = ({dialog}) => {
 
   return (
     <div className="dialog__wrap">
@@ -19,8 +28,8 @@ const Dialog = ({dialog}) => {
           <div className="contact__lastmessage_date">10.10.2020</div>
         </div>
         <p className="contact__lastmessage_text">
-          last message text ...
-          {/* {dialog.userLastMessage} */}
+          {/* last message text ... */}
+          {cutLastMessage(dialog.userLastMessage)}
         </p>
       </div>
     </div>
