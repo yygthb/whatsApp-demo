@@ -2,6 +2,13 @@
   "name": "react_whatsapp",
   "version": "0.1.0",
   "private": true,
+  "description": "WhatsApp demo React project",
+  "keywords": [
+    "react",
+    "javascript"
+  ],
+  "author": "Youri Ya <yy.ainu@gmail.com>",
+  "homepage": "",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
