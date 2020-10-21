@@ -1,0 +1,52 @@
+.dialog__wrap {
+  height: 72px;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  display: flex;
+  position: relative;
+}
+
+.contact__logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  margin: 0 15px 0 13px;
+  background-color: khaki;
+}
+
+.contact__info {
+  display: flex;
+  flex-direction: column;
+  height: 62px;
+
+  position: absolute;
+  left: 77px;
+  right: 0;
+  padding-top: 5px;
+
+  border-bottom: 1px solid var(--sidebar-border-color);
+}
+
+.contact__info_header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.contact__userName {
+  font-size: 1.3rem;
+}
+
+.contact__lastmessage_date {
+  font-size: .8rem;
+  margin-bottom: 4px;
+  margin-right: 10px;
+  opacity: .5;
+}
+.contact__lastmessage_text {
+  font-size: .9rem;
+  opacity: .6;
+}

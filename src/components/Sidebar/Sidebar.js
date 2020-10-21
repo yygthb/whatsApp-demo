@@ -11,7 +11,7 @@ const Sidebar = (props) => {
     <div className="sidebar">
       <Header />
       <SearchField />
-      <Dialogs />
+      <Dialogs dialogs={props.dialogs}/>
     </div>
   )
 }
