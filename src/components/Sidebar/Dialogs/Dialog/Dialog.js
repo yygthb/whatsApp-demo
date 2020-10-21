@@ -1,11 +1,16 @@
 import React from 'react'
 import './Dialog.css'
 
+const avatarDefault = '/images/avatar-default.png'
+
 const Dialog = ({dialog}) => {
+
+  console.log('avatar: ', dialog.userAvatar)
 
   return (
     <div className="dialog__wrap">
-      <div className="contact__logo"></div>
+      <div className="contact__logo" 
+        style={{background: `center / contain no-repeat url(${dialog.userAvatar || avatarDefault})`}}></div>
       <div className="contact__info">
         <div className="contact__info_header">
           <h4 className="contact__userName">
@@ -15,6 +20,7 @@ const Dialog = ({dialog}) => {
         </div>
         <p className="contact__lastmessage_text">
           last message text ...
+          {/* {dialog.userLastMessage} */}
         </p>
       </div>
     </div>
