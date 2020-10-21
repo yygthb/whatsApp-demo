@@ -7,7 +7,7 @@ import Context from './context'
 
 function App() {
   // load dialogs from remote server
-  const [dialogs, setDialog] = useState(createDialogs(5))
+  const [dialogs, setDialog] = useState(createDialogs(15))
 
   return (
     <Context.Provider value={{dialogs}}>
