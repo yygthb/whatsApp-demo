@@ -1,0 +1,15 @@
+.header {
+  height: 59px;
+  padding: 10px 16px;
+  background-color: var(--sidebar-header-background);
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.user__foto {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var( --background-top-color);
+}

@@ -1,0 +1,26 @@
+.search-field {
+  background-color: var(--sidebar-search-background);
+  height: 47px;
+  border-bottom: 1px solid var(--sidebar-border-color);
+  padding-top: 6px;
+}
+
+.search-field_input {
+  width: 90%;
+  height: 35px;
+  border: 0;
+  border-radius: 17px;
+  margin-left: 5%;
+  padding-right: 32px;
+  padding-left: 65px;
+
+  outline: none;
+}
+
+.search-field_input::placeholder {
+  opacity: .8;
+}
+
+.search-field_input:focus::placeholder {
+  opacity: 0;
+}

@@ -1,0 +1,38 @@
+.page__wrap {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+	width: 1400px;
+	height: 400px;
+  background-color: white;
+  margin-top: var(--page-margin-top);
+  height: calc(100vh - var(--page-margin-top-bottom));
+
+  display: grid;
+  grid-template-columns: 30% 1fr;
+
+  box-shadow: 
+    0 1px 1px 0 var(--page-shadow-rgb),
+    0 2px 5px 0 var(--page-shadow-rgb);
+}
+
+@media only screen and (max-width: 1440px) {
+  .page__wrap {
+    width: 100vw;
+    height: 100vh;
+    margin-top: 0;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .page__wrap {
+    grid-template-columns: 35% 1fr;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .page__wrap {
+    grid-template-columns: 40% 1fr;
+  }
+}

@@ -1,0 +1,23 @@
+.page__content {
+  background-color: var(--content-background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: var(--intro-secondary);
+}
+
+.page__content h2 {
+  width: 460px;
+  font-weight: 300;
+  font-size: 36px;
+  margin-bottom: 24px;
+}
+
+.page__content p {
+  width: 460px;
+  
+  line-height: 22px;
+}

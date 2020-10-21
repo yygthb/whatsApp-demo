@@ -1,0 +1,24 @@
+.page__background {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-color: lightgray;
+}
+
+.page__background span:first-child {
+  display: block;
+  content: '';
+  width: 100vw;
+  height: var(--background-top-height);
+  background-color: var(--background-top-color);
+  z-index: 1;
+}
+
+.page__background span:nth-child(2) {
+  display: block;
+  content: '';
+  width: 100vw;
+  height: calc(100vh - var(--background-top-height));
+  background-color: var(--background-mid-color);
+  z-index: 1;
+}

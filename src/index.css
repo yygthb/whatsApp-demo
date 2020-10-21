@@ -8,7 +8,7 @@ html {
 }
 *, *::before, *::after {
   box-sizing: inherit;
-  letter-spacing: .5px;
+  letter-spacing: .8px;
 }
 
 body {
