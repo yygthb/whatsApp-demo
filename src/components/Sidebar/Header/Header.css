@@ -11,5 +11,34 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: var( --background-top-color);
+  background-color: var(--background-top-color);
+  cursor: pointer;
+}
+
+.user__control {
+  display: flex;
+}
+
+.user__control div {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 10px;
+  opacity: .5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.user__control div:active {
+  background-color: var(--header-control-background);
+}
+.user__control div:nth-child(1) {
+  margin-left: 0px;
+}
+.user__control div:nth-child(1) span {
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  border: 2px solid black;
 }

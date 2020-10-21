@@ -5,7 +5,7 @@
   background-color: lightgray;
 }
 
-.page__background span:first-child {
+.page__background .page__background_color:first-child {
   display: block;
   content: '';
   width: 100vw;
@@ -14,7 +14,7 @@
   z-index: 1;
 }
 
-.page__background span:nth-child(2) {
+.page__background .page__background_color:nth-child(2) {
   display: block;
   content: '';
   width: 100vw;

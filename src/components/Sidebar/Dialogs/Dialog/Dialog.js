@@ -1,11 +1,8 @@
 import React from 'react'
 import './Dialog.css'
 
-const avatarDefault = '/images/avatar-default.png'
-
 // if message > 28 symbs, add ... at the end
 function cutLastMessage(str) {
-  console.log(`${str}: ${str.length} symb`)
   let cut = ''
   if (str.length > 28) {
     cut = str.slice(0, 27) + ' ...'
@@ -19,7 +16,7 @@ const Dialog = ({dialog}) => {
   return (
     <div className="dialog__wrap">
       <div className="contact__logo" 
-        style={{background: `center / contain no-repeat url(${dialog.userAvatar || avatarDefault})`}}></div>
+        style={{background: `center / contain no-repeat url(${dialog.userAvatar})`}}></div>
       <div className="contact__info">
         <div className="contact__info_header">
           <h4 className="contact__userName">

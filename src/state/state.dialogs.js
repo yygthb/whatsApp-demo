@@ -2,6 +2,8 @@
 
 import faker from 'faker'
 
+const avatarDefault = '/images/avatar-default.png'
+
 export default function createDialogs (num) {
   const arr = []
   for (let i = 1; i <= num; i++) {
@@ -10,7 +12,7 @@ export default function createDialogs (num) {
         userId: i,
         // userName: `Name ${i}`
         userName: faker.name.findName(),
-        userAvatar: faker.image.avatar(),
+        userAvatar: faker.image.avatar() || avatarDefault,
         userLastMessage: faker.lorem.paragraph(),
       }
     )
