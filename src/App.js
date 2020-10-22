@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import './App.css';
 
-import createDialogs from './state/state.dialogs'
 import loadOwnerInfo from './state/state.owner'
+import {loadSimpleDialogs, loadFakeDialogs} from './state/state.users'
 
 import MainPage from './components/MainPage'
 import Context from './context'
@@ -11,7 +11,8 @@ function App() {
   // load owner info from remote server
   const [owner, setOwner] = useState(loadOwnerInfo())
   // load dialogs from remote server
-  const [dialogs, setDialogs] = useState(createDialogs(5))
+  const [dialogs, setDialogs] = useState(loadSimpleDialogs(5)) // load simple test data
+  // const [dialogs, setDialogs] = useState(loadFakeDialogs(5)) // load data from faker.js
 
   // selecting active dialog from dialogs
   const [dialog, setDialog] = useState({
