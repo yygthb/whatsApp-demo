@@ -104,6 +104,8 @@
 }
 
 .content__main_messages {
+  display: flex;
+  flex-direction: column;
   margin: auto 0 0;
   padding: 0 9% 8px 9%;
 }
@@ -118,11 +120,13 @@
 
 .content__message.incoming {
   float: left;
+  align-self: flex-start;
   background-color: var(--message-incoming-background);
 }
 
 .content__message.outgoing {
   float: right;
+  align-self: flex-end;
   background-color: var(--message-outgoing-background);
 }
 

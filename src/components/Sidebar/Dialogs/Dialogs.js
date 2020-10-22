@@ -13,7 +13,7 @@ const Dialogs = () => {
       {
         users.map((d, index) => {
           return (
-            <li key={index} className={dialog.userId === d.userId ? 'active' : ''}>
+            <li key={index} className={dialog.userId === d.userInfo.userId ? 'active' : ''}>
               <Dialog dialog={d}/>
             </li>
           )

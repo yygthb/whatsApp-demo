@@ -12,9 +12,9 @@ export default function ActiveDialog ({dialog}) {
       <header className="activedialog__header">
         <div className="header__user">
           <div className="header__user_avatar" 
-        style={{background: `center / contain no-repeat url(${dialog.userAvatar})`}}></div>
+        style={{background: `center / contain no-repeat url(${dialog.userInfo.userAvatar})`}}></div>
           <div className="header__user_info">
-            <div  className="header__user_name">{dialog.userName}</div>
+            <div  className="header__user_name">{dialog.userInfo.userName}</div>
             <div  className="header__user_seen">last seen "date"</div>
           </div>
         </div>
@@ -29,23 +29,24 @@ export default function ActiveDialog ({dialog}) {
       </header>
       <main className="activedialog__content">
         <div className="activedialog__content_background"></div>
-        {
-          dialog.userLastMessage ? 
-            <div className="content__main">
-              <div className="content__main_messages">
-                {/* <div className="content__message outgoing"> */}
-                <div className={
-                  dialog.userId === dialog.userLastMessage.messageAuthor ? `content__message incoming` : `content__message outgoing`
-                }>
-                  <div className="content__message_text">
-                    {`auth(${dialog.userLastMessage.messageAuthor}): ${dialog.userLastMessage.text}`}
-                  </div>
-                </div>
-              </div>
+            
+          <div className="content__main">
+            <div className="content__main_messages">
+              {
+                dialog.messages.map((message, index) => {
+                  return (
+                    <div key={index} className={
+                      dialog.userInfo.userId === message.messageAuthor ? `content__message incoming` : `content__message outgoing`
+                    }>
+                      <div className="content__message_text">
+                        {`auth(${message.messageAuthor}): ${message.messageText}`}
+                      </div>
+                    </div>
+                  )
+                })
+              }
             </div>
-          :
-            <span></span>
-        }
+          </div>
 
       </main>
       <footer className="activedialog__footer">
