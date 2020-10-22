@@ -25,7 +25,11 @@ export default function ActiveDialog ({dialog}) {
         </div>
       </header>
       <main className="activedialog__content">
-        Messages
+        <div className="activedialog__content_background"></div>
+        <div className="content__main">
+          {dialog.userLastMessage}
+        </div>
+
       </main>
       <footer className="activedialog__footer">
         <div className="footer__emoji">

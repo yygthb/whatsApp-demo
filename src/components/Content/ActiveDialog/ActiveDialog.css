@@ -70,9 +70,32 @@
 .activedialog__content {
   width: 100%;
   height: 100%;
-    /* background-image: url(/images/wallpaper.webp); */
-    background-color: #d6d6d6;
-   
+  position: relative;
+}
+.activedialog__content_background {
+    width: 100%;
+    height: 100%;
+    background-image: url(/images/wallpaper-min.png);
+    opacity: .4;
+}
+/* .activedialog__content_background::after {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--content-dialogs-background-color);
+  opacity: .2;
+} */
+
+.content__main {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
 
 /* ------------------------Footer------------------------ */

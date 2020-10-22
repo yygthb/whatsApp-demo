@@ -1,5 +1,5 @@
 .page__content_home {
-  background-color: var(--content-background-color);
+  background-color: var(--content-main-background-color);
   display: flex;
   justify-content: center;
   align-items: center;
