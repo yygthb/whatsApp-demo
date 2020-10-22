@@ -3,6 +3,7 @@ import './App.css';
 
 import loadOwnerInfo from './state/state.owner'
 import {loadSimpleUsers, loadFakeUsers} from './state/state.users'
+import {loadActiveDialog} from './state/state.activeDialog'
 
 import MainPage from './components/MainPage'
 import Context from './context'
@@ -11,8 +12,8 @@ function App() {
   // load owner info from remote server
   const [owner, setOwner] = useState(loadOwnerInfo())
   // load user's to sidebar from remote server
-  // const [users, setUsers] = useState(loadSimpleUsers(3)) // load simple test data
-  const [users, setUsers] = useState(loadFakeUsers(5)) // load data from faker.js
+  const [users, setUsers] = useState(loadSimpleUsers(3)) // load simple test data
+  // const [users, setUsers] = useState(loadFakeUsers(3)) // load data from faker.js
 
   // selecting active dialog from dialogs
   const [dialog, setDialog] = useState('')
@@ -20,8 +21,8 @@ function App() {
   // get dialog-id from Sidebar and push dialog-lastMessage to ContentComponent
   function getActiveUserId(id) {
     users.forEach(dialog => {
-      if (dialog.userId === id) {
-        setDialog(dialog)
+      if (dialog.userInfo.userId === id) {
+        setDialog(loadActiveDialog(id))
       }
     })
     return ''
