@@ -15,19 +15,29 @@ const Dialog = ({dialog}) => {
 
   return (
     <div className="dialog__wrap">
-      <div className="contact__logo" 
+      <div className="contact__avatar" 
         style={{background: `center / contain no-repeat url(${dialog.userAvatar})`}}></div>
       <div className="contact__info">
-        <div className="contact__info_header">
-          <h4 className="contact__userName">
-            {dialog.userName}
-          </h4>
-          <div className="contact__lastmessage_date">10.10.2020</div>
+        <div className="contact__info_wrap">
+          <div className="contact__info_header">
+            <h4 className="contact__info_userName">
+              {dialog.userName}
+            </h4>
+            <div className="contact__info_date">10.10.2020</div>
+          </div>
+          <div className="contact__lastmessage_wrap">
+            <div className="contact__lastmessage_text">
+              <p>
+                {/* last message text ... */}
+                {cutLastMessage(dialog.userLastMessage)}
+              </p>
+            </div>
+            <div className="dialog__settings_wrap">
+              <span className="dialog__settings_mark"></span>
+              <span className="dialog__settings_mark"></span>
+            </div>
+          </div>
         </div>
-        <p className="contact__lastmessage_text">
-          {/* last message text ... */}
-          {cutLastMessage(dialog.userLastMessage)}
-        </p>
       </div>
     </div>
   )
