@@ -15,11 +15,11 @@ function cutLastMessage(str) {
 
 const Dialog = ({dialog}) => {
 
-  const {getDialogId} = useContext(Context)
+  const {getActiveUserId} = useContext(Context)
 
   return (
     <div className="dialog__wrap" onClick={() => {
-      getDialogId(dialog.userId)
+      getActiveUserId(dialog.userId)
     }}>
       <div className="contact__avatar" 
         style={{background: `center / contain no-repeat url(${dialog.userAvatar})`}}></div>

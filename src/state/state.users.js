@@ -1,14 +1,13 @@
-// load state - array of dialogs
+// load state - array of active users to sidebar
 import faker from 'faker'
 import Dialogs from './db.dialogs'
 
 const avatarDefault = '/images/avatar-default.png'
-const dialogs = Dialogs()
+const dbDialogs = Dialogs()
 
-
-function loadSimpleDialogs (num) {
+function loadSimpleUsers (num) {
   const arr = []
-  dialogs.forEach(dialog => {
+  dbDialogs.forEach(dialog => {
     for (let i = 1; i <= num; i++) {
       if (dialog.userId === i) {
         arr.push(
@@ -25,9 +24,9 @@ function loadSimpleDialogs (num) {
   return arr
 }
 
-function loadFakeDialogs (num) {
+function loadFakeUsers (num) {
   const arr = []
-  dialogs.forEach(dialog => {
+  dbDialogs.forEach(dialog => {
     for (let i = 1; i <= num; i++) {
       if (dialog.userId === i) {
         arr.push(
@@ -46,4 +45,4 @@ function loadFakeDialogs (num) {
   // text: faker.lorem.paragraph()
 }
 
-export {loadSimpleDialogs, loadFakeDialogs}
+export {loadSimpleUsers, loadFakeUsers}
