@@ -14,6 +14,7 @@ function App() {
   const [dialogs, setDialogs] = useState(createDialogs(5))
   // selecting active dialog from dialogs
   const [dialog, setDialog] = useState({
+    userId: 999,
     userName: 'Evg Malkin',
   })
 

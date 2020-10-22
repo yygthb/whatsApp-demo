@@ -6,14 +6,15 @@ import Context from '../../../context'
 const Dialogs = () => {
 
   const {dialogs} = useContext(Context)
+  const {dialog} = useContext(Context)
 
   return (
     <ul className="dialogs__wrap">
       {
-        dialogs.map((dialog, index) => {
+        dialogs.map((d, index) => {
           return (
-            <li key={index}>
-              <Dialog dialog={dialog}/>
+            <li key={index} className={dialog.userId === d.userId ? 'active' : ''}>
+              <Dialog dialog={d}/>
             </li>
           )
         })
