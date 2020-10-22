@@ -38,7 +38,9 @@ code {
   --page-margin-top: 19px;
   --page-margin-top-bottom: 38px;
   --sidebar-background-color: white;
-  --sidebar-border-color: #edeced;
+  --sidebar-border-color: #e4e4e4;
+  --sidebar-active-dialog-background: #ebebeb;
+  --sidebar-dialog-border-color: #dddddd8e;
   --sidebar-header-background: #ededed;
   --sidebar-search-background: #f6f6f6;
   --sidebar-width-30: 30%;

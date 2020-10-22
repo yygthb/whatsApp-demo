@@ -2,6 +2,7 @@ import React, {useContext} from 'react'
 import './Content.css'
 
 import Context from '../../context'
+import ActiveDialog from './ActiveDialog/ActiveDialog'
 
 const Content = () => {
 
@@ -11,9 +12,7 @@ const Content = () => {
     <>
       {
         dialog ? 
-          <div className="page__content_dialog">
-            {dialog.userName}
-          </div>
+          <ActiveDialog dialog={dialog}/>
           :
           <div className="page__content_home">
           <h2>

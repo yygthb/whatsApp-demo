@@ -7,8 +7,8 @@ const Header = () => {
 
   return (
     <div className="header">
-      <div className="user__foto" style={{background: `center / contain no-repeat url(${owner.ownerAvatar})`}}></div>
-      <div className="user__control">
+      <div className="owner__foto" style={{background: `center / contain no-repeat url(${owner.ownerAvatar})`}}></div>
+      <div className="owner__control">
         <div title="Status">
           <span></span>
         </div>

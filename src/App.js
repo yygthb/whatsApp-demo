@@ -13,7 +13,9 @@ function App() {
   // load dialogs from remote server
   const [dialogs, setDialogs] = useState(createDialogs(5))
   // selecting active dialog from dialogs
-  const [dialog, setDialog] = useState('')
+  const [dialog, setDialog] = useState({
+    userName: 'Evg Malkin',
+  })
 
   // get dialog from DialogsComponent and push it to ContentComponent
   function getDialogId(id) {

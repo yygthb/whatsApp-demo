@@ -1,13 +1,13 @@
 .header {
   height: 59px;
-  padding: 10px 16px;
+  padding: 9px 16px;
   background-color: var(--sidebar-header-background);
 
   display: flex;
   justify-content: space-between;
 }
 
-.user__foto {
+.owner__foto {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -15,11 +15,11 @@
   cursor: pointer;
 }
 
-.user__control {
+.owner__control {
   display: flex;
 }
 
-.user__control div {
+.owner__control div {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -30,13 +30,13 @@
   align-items: center;
   cursor: pointer;
 }
-.user__control div:active {
+.owner__control div:active {
   background-color: var(--header-control-background);
 }
-.user__control div:nth-child(1) {
+.owner__control div:nth-child(1) {
   margin-left: 0px;
 }
-.user__control div:nth-child(1) span {
+.owner__control div:nth-child(1) span {
   width: 21px;
   height: 21px;
   border-radius: 50%;
