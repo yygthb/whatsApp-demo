@@ -11,18 +11,11 @@ function App() {
   // load owner info from remote server
   const [owner, setOwner] = useState(loadOwnerInfo())
   // load dialogs from remote server
-  const [dialogs, setDialogs] = useState(loadSimpleDialogs(5)) // load simple test data
+  const [dialogs, setDialogs] = useState(loadSimpleDialogs(3)) // load simple test data
   // const [dialogs, setDialogs] = useState(loadFakeDialogs(5)) // load data from faker.js
 
   // selecting active dialog from dialogs
-  const [dialog, setDialog] = useState({
-    userId: 999,
-    userName: 'Evg Malkin',
-    userLastMessage: {
-      incoming: false,
-      text: 'Lorem ipsum — классический текст-«рыба»'
-    }
-  })
+  const [dialog, setDialog] = useState('')
 
   // get dialog from DialogsComponent and push it to ContentComponent
   function getDialogId(id) {

@@ -4,12 +4,15 @@ import './ActiveDialog.css'
 const avatarDefault = '/images/avatar-default.png'
 
 export default function ActiveDialog ({dialog}) {
+
+  // console.log('dialog: ', dialog)
+
   return (
     <div className="activedialog__wrap">
       <header className="activedialog__header">
         <div className="header__user">
           <div className="header__user_avatar" 
-        style={{background: `center / contain no-repeat url(${avatarDefault})`}}></div>
+        style={{background: `center / contain no-repeat url(${dialog.userAvatar})`}}></div>
           <div className="header__user_info">
             <div  className="header__user_name">{dialog.userName}</div>
             <div  className="header__user_seen">last seen "date"</div>
@@ -32,10 +35,10 @@ export default function ActiveDialog ({dialog}) {
               <div className="content__main_messages">
                 {/* <div className="content__message outgoing"> */}
                 <div className={
-                  dialog.userLastMessage.incoming ? `content__message incoming` : `content__message outgoing`
+                  dialog.userId === dialog.userLastMessage.messageAuthor ? `content__message incoming` : `content__message outgoing`
                 }>
                   <div className="content__message_text">
-                    {`${dialog.userLastMessage.incoming}: ${dialog.userLastMessage.text}`}
+                    {`auth(${dialog.userLastMessage.messageAuthor}): ${dialog.userLastMessage.text}`}
                   </div>
                 </div>
               </div>
