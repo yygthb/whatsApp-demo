@@ -4,7 +4,6 @@ import './Header.css'
 
 const Header = () => {
   const {owner} = useContext(Context)
-  console.log('owner: ', owner)
 
   return (
     <div className="header">

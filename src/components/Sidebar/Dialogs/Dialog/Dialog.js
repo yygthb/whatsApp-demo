@@ -1,5 +1,7 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import './Dialog.css'
+
+import Context from '../../../../context'
 
 // if message > 28 symbs, add ... at the end
 function cutLastMessage(str) {
@@ -13,8 +15,12 @@ function cutLastMessage(str) {
 
 const Dialog = ({dialog}) => {
 
+  const {getDialogId} = useContext(Context)
+
   return (
-    <div className="dialog__wrap">
+    <div className="dialog__wrap" onClick={() => {
+      getDialogId(dialog.userId)
+    }}>
       <div className="contact__avatar" 
         style={{background: `center / contain no-repeat url(${dialog.userAvatar})`}}></div>
       <div className="contact__info">
