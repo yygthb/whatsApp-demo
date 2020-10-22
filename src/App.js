@@ -12,10 +12,15 @@ function App() {
   const [owner, setOwner] = useState(loadOwnerInfo())
   // load dialogs from remote server
   const [dialogs, setDialogs] = useState(createDialogs(5))
+
   // selecting active dialog from dialogs
   const [dialog, setDialog] = useState({
     userId: 999,
     userName: 'Evg Malkin',
+    userLastMessage: {
+      incoming: false,
+      text: 'Lorem ipsum — классический текст-«рыба»'
+    }
   })
 
   // get dialog from DialogsComponent and push it to ContentComponent

@@ -35,7 +35,7 @@ const Dialog = ({dialog}) => {
             <div className="contact__lastmessage_text">
               <p>
                 {/* last message text ... */}
-                {cutLastMessage(dialog.userLastMessage)}
+                {cutLastMessage(dialog.userLastMessage.text)}
               </p>
             </div>
             <div className="dialog__settings_wrap">

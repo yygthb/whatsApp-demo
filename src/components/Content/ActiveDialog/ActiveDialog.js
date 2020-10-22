@@ -26,9 +26,23 @@ export default function ActiveDialog ({dialog}) {
       </header>
       <main className="activedialog__content">
         <div className="activedialog__content_background"></div>
-        <div className="content__main">
-          {dialog.userLastMessage}
-        </div>
+        {
+          dialog.userLastMessage ? 
+            <div className="content__main">
+              <div className="content__main_messages">
+                {/* <div className="content__message outgoing"> */}
+                <div className={
+                  dialog.userLastMessage.incoming ? `content__message incoming` : `content__message outgoing`
+                }>
+                  <div className="content__message_text">
+                    {`${dialog.userLastMessage.incoming}: ${dialog.userLastMessage.text}`}
+                  </div>
+                </div>
+              </div>
+            </div>
+          :
+            <span></span>
+        }
 
       </main>
       <footer className="activedialog__footer">
@@ -38,9 +52,7 @@ export default function ActiveDialog ({dialog}) {
         <div className="footer__input">
           <input className="input__message"
             placeholder="Type a message"
-          >
-          
-          </input>
+          ></input>
         </div>
       </footer>
     </div>

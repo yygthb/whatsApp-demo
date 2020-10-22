@@ -32,9 +32,11 @@ code {
   --background-top-height: 125px;
   --background-mid-color: #d9dbd5;
   --content-main-background-color: #f8f9fb;
-  --content-dialogs-background-color: #e5ddd5;
+  --content-dialogs-background-color: #daba9b;
   --intro-secondary: rgba(0, 0, 0, 0.45);
   --header-control-background: #d5d5d5;
+  --message-incoming-background: white;
+  --message-outgoing-background: #dcf8d6;
   --page-shadow-rgb: rgb(162, 162, 162);
   --page-margin-top: 19px;
   --page-margin-top-bottom: 38px;

@@ -76,9 +76,9 @@
     width: 100%;
     height: 100%;
     background-image: url(/images/wallpaper-min.png);
-    opacity: .4;
+    opacity: .7;
 }
-/* .activedialog__content_background::after {
+.activedialog__content_background::after {
   display: block;
   content: '';
   position: absolute;
@@ -87,8 +87,8 @@
   width: 100%;
   height: 100%;
   background-color: var(--content-dialogs-background-color);
-  opacity: .2;
-} */
+  opacity: .5;
+}
 
 .content__main {
   position: absolute;
@@ -96,6 +96,54 @@
   height: 100%;
   top: 0;
   left: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow-y: scroll;
+}
+
+.content__main_messages {
+  margin: auto 0 0;
+  padding: 0 9% 8px 9%;
+}
+
+.content__message {
+  margin-bottom: 12px;
+  padding: 6px 7px 8px 9px;
+  max-width: 65%;
+  border: 1px solid var(--sidebar-border-color);
+  border-radius: 9px;
+}
+
+.content__message.incoming {
+  float: left;
+  background-color: var(--message-incoming-background);
+}
+
+.content__message.outgoing {
+  float: right;
+  background-color: var(--message-outgoing-background);
+}
+
+.content__message_text {
+
+}
+
+@media only screen and (max-width: 1300px) {
+  .content__message {
+    max-width: 75%;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .content__message {
+    max-width: 85%;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .content__message {
+    max-width: 95%;
+  }
 }
 
 /* ------------------------Footer------------------------ */
