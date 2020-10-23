@@ -49,6 +49,12 @@ function App() {
   // load all dialogs from db
   const [stateAllDialogs] = useState(dbDialogs)
 
+  // input form
+  const [newMessage, setNewMessage] = useState('')
+  function editNewMessage(value) {
+    setNewMessage(value)
+  }
+
   // users to sidebar
   const [users] = useState(() => {
     const arr = []
@@ -74,6 +80,7 @@ function App() {
   // get dialog-id from Sidebar and push activeDialog to ContentComponent
   function getActiveDialog(id) {
     setActiveDialogId(id)
+    setNewMessage('')
 
     let userInfo = {}
     stateAllUsers.forEach(user => {
@@ -97,7 +104,8 @@ function App() {
   }
 
   return (
-    <Context.Provider value={{owner, users, activeDialogId, getActiveDialog, activeDialog}}>
+    <Context.Provider value={{owner, users, activeDialogId, getActiveDialog, 
+      activeDialog, newMessage, editNewMessage}}>
       <div className="page__background">
         <span className="page__background_color"></span>
         <span className="page__background_color"></span>
