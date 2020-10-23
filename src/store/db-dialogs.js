@@ -16,6 +16,46 @@ let dbDialogs = {
           messageText: 'another text from user 1',
           messageAuthor: 1
         },
+        {
+          messageId: 123456,
+          messageText: 'another text from user 1',
+          messageAuthor: 1
+        },
+        {
+          messageId: 123456,
+          messageText: 'another text from user 1',
+          messageAuthor: 1
+        },
+        {
+          messageId: 123456,
+          messageText: 'another text from user 1',
+          messageAuthor: 1
+        },
+        {
+          messageId: 123456,
+          messageText: 'another text from user 1',
+          messageAuthor: 1
+        },
+        {
+          messageId: 123456,
+          messageText: 'another text from user 1',
+          messageAuthor: 1
+        },
+        {
+          messageId: 123456,
+          messageText: 'another text from user 1',
+          messageAuthor: 1
+        },
+        {
+          messageId: 123456,
+          messageText: 'another text from user 1',
+          messageAuthor: 1
+        },
+        {
+          messageId: 123456,
+          messageText: 'another text from user 1',
+          messageAuthor: 1
+        },
       ],
       getLastMessage() {
         return {

@@ -8,22 +8,21 @@ import store from './store/state'
 
 function App() {
   const state = store.getState()
+  const dispatch = store.dispatch.bind(store)
 
   // load profile info from db
   const profile = state.profile
   // load users to sidebar from db
-  const users = store.getActiveDialogs()
+  const users = dispatch({type: 'GET_ACTIVE_DIALOGS_TO_SIDEBAR'})
 
-  // new message input form
-  const [newMessageText, setNewMessage] = useState('')
-  function editNewMessage(value) {
-    setNewMessage(value)
-  }
-  function pullNewMessage (id) {
-    if (newMessageText !== '') {
-      store.stateAddNewMessaege(id, newMessageText)
-    }
-    setNewMessage('')
+  // new message from div-input
+  function divInput(id, text) {
+    // store.divNewMessaege(id, text)
+    dispatch({
+      type: 'SEND_NEW_MESSAGE',
+      id,
+      text,
+    })
   }
 
   // selecting active dialog from dialogs
@@ -53,8 +52,7 @@ function App() {
   }
 
   return (
-    <Context.Provider value={{profile, users, activeDialogId, getActiveDialog, 
-      activeDialog, newMessageText, editNewMessage, pullNewMessage}}>
+    <Context.Provider value={{profile, users, activeDialogId, getActiveDialog, activeDialog, divInput}}>
       <div className="page__background">
         <span className="page__background_color"></span>
         <span className="page__background_color"></span>

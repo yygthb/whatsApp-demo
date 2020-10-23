@@ -10,7 +10,7 @@
   height: calc(100vh - var(--page-margin-top-bottom));
 
   display: grid;
-  grid-template-columns: 30% 1fr;
+  grid-template-columns: 30% 70%;
 
   box-shadow: 
     0 1px 1px 0 var(--page-shadow-rgb),
@@ -27,12 +27,12 @@
 
 @media only screen and (max-width: 1300px) {
   .page__wrap {
-    grid-template-columns: 35% 1fr;
+    grid-template-columns: 35% 65%;
   }
 }
 
 @media only screen and (max-width: 900px) {
   .page__wrap {
-    grid-template-columns: 40% 1fr;
+    grid-template-columns: 40% 60%;
   }
 }
