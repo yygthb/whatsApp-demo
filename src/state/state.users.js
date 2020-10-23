@@ -1,52 +1,30 @@
-// load state - array of active users to sidebar
+// create state - dialog-users info
+
 import faker from 'faker'
-import Dialogs from './db.dialogs'
-import Users from './db.users'
+import config from '../config'
 
-const avatarDefault = '/images/avatar-default.png'
-const dbDialogs = Dialogs()
-const dbUsers = Users(3)
+export default function getAllUsersFromDB (num, action) {
+  const users = []
 
-function loadSimpleUsers (num) {
-  // console.log('users: ', dbUsers)
-
-  const arr = []
-  dbUsers.forEach(user => {
-    dbDialogs.forEach(dialog => {
-      if (user.userInfo.userId === dialog.userId) {
-        arr.push({
-          userInfo: user.userInfo,
-          userLastMessage: dialog.getLastMessage(),
-        })
-        return true
-      }
-    })
-    return true
-  })
-  return arr
-}
-
-function loadFakeUsers (num) {
-  const arr = []
-  dbDialogs.forEach(dialog => {
-    for (let i = 1; i <= num; i++) {
-      if (dialog.userId === i) {
-        arr.push(
-          {
-            userInfo: {
-              userId: i,
-              userName: faker.name.findName(),
-              userAvatar: faker.image.avatar() || avatarDefault,
-            },
-            userLastMessage: dialog.getLastMessage(),
-          }
-        )
-      }
+  for (let i = 11; i <= num + 10; i++) {
+    if (action === 'LOREM') {
+      users.push({
+        userInfo: {
+          userId: i,
+          userName: `New User Name ${i}`,
+          userAvatar: config.AVATARDEFAULT,
+        }
+      })
     }
-  })
-  return arr
-
-  // text: faker.lorem.paragraph()
+    if (action === 'FAKER') {
+      users.push({
+        userInfo: {
+          userId: i,
+          userName: faker.name.findName(),
+          userAvatar: faker.image.avatar(),
+        }
+      })
+    }
+  }
+  return users
 }
-
-export {loadSimpleUsers, loadFakeUsers}

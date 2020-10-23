@@ -1,20 +1,16 @@
 import React from 'react'
 import './ActiveDialog.css'
 
-const avatarDefault = '/images/avatar-default.png'
-
-export default function ActiveDialog ({dialog}) {
-
-  // console.log('dialog: ', dialog)
+export default function ActiveDialog ({activeDialog}) {
 
   return (
     <div className="activedialog__wrap">
       <header className="activedialog__header">
         <div className="header__user">
           <div className="header__user_avatar" 
-        style={{background: `center / contain no-repeat url(${dialog.userInfo.userAvatar})`}}></div>
+        style={{background: `center / contain no-repeat url(${activeDialog.userInfo.userAvatar})`}}></div>
           <div className="header__user_info">
-            <div  className="header__user_name">{dialog.userInfo.userName}</div>
+            <div  className="header__user_name">{activeDialog.userInfo.userName}</div>
             <div  className="header__user_seen">last seen "date"</div>
           </div>
         </div>
@@ -33,10 +29,10 @@ export default function ActiveDialog ({dialog}) {
           <div className="content__main">
             <div className="content__main_messages">
               {
-                dialog.messages.map((message, index) => {
+                activeDialog.messages.map((message, index) => {
                   return (
                     <div key={index} className={
-                      dialog.userInfo.userId === message.messageAuthor ? `content__message incoming` : `content__message outgoing`
+                      activeDialog.userInfo.userId === message.messageAuthor ? `content__message incoming` : `content__message outgoing`
                     }>
                       <div className="content__message_text">
                         {`auth(${message.messageAuthor}): ${message.messageText}`}
