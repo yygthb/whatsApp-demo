@@ -4,37 +4,26 @@ import './App.css';
 import MainPage from './components/MainPage'
 
 import Context from './context'
-
-import state from './store/state'
+import store from './store/state'
 
 function App() {
+  const state = store.getState()
+
   // load profile info from db
-  const [profile] = useState(state.profile)
-  // load all users from db to sidebar
-  const [users] = useState(() => {
-    let listOfDialogs = []
+  const profile = state.profile
+  // load users to sidebar from db
+  const users = store.getActiveDialogs()
 
-    state.dialogs.forEach(dialog => {
-      state.users.forEach(user => {
-        if (dialog.userId === user.userId) {
-          listOfDialogs.push({
-            userInfo: {
-              userId: user.userId,
-              userName: user.userName,
-              userAvatar: user.userAvatar
-            },
-            lastMessage: dialog.getLastMessage()
-          })
-        }
-      })
-    })
-    return listOfDialogs
-  })
-
-  // input form
-  const [newMessage, setNewMessage] = useState('')
+  // new message input form
+  const [newMessageText, setNewMessage] = useState('')
   function editNewMessage(value) {
     setNewMessage(value)
+  }
+  function pullNewMessage (id) {
+    if (newMessageText !== '') {
+      store.stateAddNewMessaege(id, newMessageText)
+    }
+    setNewMessage('')
   }
 
   // selecting active dialog from dialogs
@@ -50,26 +39,22 @@ function App() {
         return true
       }
     })
-
     let activeMessages = {}
     state.dialogs.forEach(dialog => {
       if (dialog.userId === id) {
-        // console.log('messages: ', dialog.messages)
         activeMessages = dialog.messages
         return true
       }
     })
-
     setActiveDialog({
       activeUser,
       activeMessages,
     })
-
   }
 
   return (
     <Context.Provider value={{profile, users, activeDialogId, getActiveDialog, 
-      activeDialog, newMessage, editNewMessage}}>
+      activeDialog, newMessageText, editNewMessage, pullNewMessage}}>
       <div className="page__background">
         <span className="page__background_color"></span>
         <span className="page__background_color"></span>

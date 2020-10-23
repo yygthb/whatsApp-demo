@@ -1,6 +1,4 @@
 export default {
-  AVATARPROFILE: '/images/wick.jpg',
-  AVATARDEFAULT: '/images/avatar-default.png',
-  LOADUSERSFROM: 'LOREM',
-  // LOADUSERSFROM: 'FAKER',
+  AVATAR_PROFILE: '/images/wick.jpg',
+  AVATAR_DEFAULT: '/images/avatar-default.png',
 }

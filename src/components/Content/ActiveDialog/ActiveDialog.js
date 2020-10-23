@@ -4,10 +4,14 @@ import './ActiveDialog.css'
 import Context from '../../../context'
 
 export default function ActiveDialog ({activeDialog}) {
-  const {newMessage, editNewMessage} = useContext(Context)
+  const {newMessageText, editNewMessage, pullNewMessage} = useContext(Context)
 
   const submitHandler = (e) => {
     e.preventDefault()
+
+    // console.log('')
+    // console.log('activeDialog.activeUser.userId: ', activeDialog.activeUser.userId)
+    pullNewMessage(activeDialog.activeUser.userId)
   }
 
   return (
@@ -67,7 +71,7 @@ export default function ActiveDialog ({activeDialog}) {
             type="text"
             className="input__form_text"
             placeholder="Type a message"
-            value={newMessage}
+            value={newMessageText}
             onChange={e => {
               editNewMessage(e.target.value)
             }}

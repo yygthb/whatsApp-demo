@@ -4,13 +4,20 @@ import './reset.css'
 import './index.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
+import store from './store/state'
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+let rerenderEntireTree = () => {
+  ReactDOM.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>,
+    document.getElementById('root')
+  );
+}
+
+rerenderEntireTree()
+
+store.subscribe(rerenderEntireTree)
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
