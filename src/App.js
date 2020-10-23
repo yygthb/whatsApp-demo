@@ -3,51 +3,33 @@ import './App.css';
 
 import MainPage from './components/MainPage'
 
-import config from './config'
-import loadOwnerInfo from './state/state.owner'
-import getAllUsersFromDB from './state/state.users'
-import Dialogs from './state/db.dialogs';
 import Context from './context'
 
-const dbDialogs = Dialogs()
-
-const activeDialogDebug = {
-  userInfo: {
-    userId: 22,
-    userName: `Jho Silver`,
-    userAvatar: config.AVATARDEFAULT,
-  },
-  messages: [
-    {
-      messageId: 123456,
-      messageText: 'some 1st text from user 22',
-      messageAuthor: 22
-    },
-    {
-      messageId: 123456,
-      messageText: 'Сервис проверки уникальности текста - поиск источников, подсчёт уникальности текста в процентах. Поиск цитат вашего контента с проверкой',
-      messageAuthor: 22
-    },
-    {
-      messageId: 123456,
-      messageText: 'some 1st text to user 22',
-      messageAuthor: 999
-    },
-    {
-      messageId: 123456,
-      messageText: 'some 1st text from user 22',
-      messageAuthor: 22
-    },
-  ]
-}
+import state from './store/state'
 
 function App() {
-  // load owner info from db
-  const [owner] = useState(loadOwnerInfo())
-  // load all users from db
-  const [stateAllUsers] = useState(getAllUsersFromDB(3, config.LOADUSERSFROM))
-  // load all dialogs from db
-  const [stateAllDialogs] = useState(dbDialogs)
+  // load profile info from db
+  const [profile] = useState(state.profile)
+  // load all users from db to sidebar
+  const [users] = useState(() => {
+    let listOfDialogs = []
+
+    state.dialogs.forEach(dialog => {
+      state.users.forEach(user => {
+        if (dialog.userId === user.userId) {
+          listOfDialogs.push({
+            userInfo: {
+              userId: user.userId,
+              userName: user.userName,
+              userAvatar: user.userAvatar
+            },
+            lastMessage: dialog.getLastMessage()
+          })
+        }
+      })
+    })
+    return listOfDialogs
+  })
 
   // input form
   const [newMessage, setNewMessage] = useState('')
@@ -55,56 +37,38 @@ function App() {
     setNewMessage(value)
   }
 
-  // users to sidebar
-  const [users] = useState(() => {
-    const arr = []
-    stateAllUsers.forEach(user => {
-      stateAllDialogs.forEach(dialog => {
-        if (user.userInfo.userId === dialog.userId) {
-          arr.push({
-            userInfo: user.userInfo,
-            userLastMessage: dialog.getLastMessage(),
-          })
-          return true
-        }
-      })
-      return true
-    })
-  return arr
-  })
-
   // selecting active dialog from dialogs
-  const [activeDialog, setActiveDialog] = useState(activeDialogDebug)
-  const [activeDialogId, setActiveDialogId] = useState('')
+  const [activeDialog, setActiveDialog] = useState('')
+  const [activeDialogId] = useState('')
 
   // get dialog-id from Sidebar and push activeDialog to ContentComponent
   function getActiveDialog(id) {
-    setActiveDialogId(id)
-    setNewMessage('')
-
-    let userInfo = {}
-    stateAllUsers.forEach(user => {
-      if (user.userInfo.userId === id) {
-        userInfo = user.userInfo
+    let activeUser = {}
+    state.users.forEach(user => {
+      if (user.userId === id) {
+        activeUser = user
         return true
       }
     })
-    let messages = []
-    stateAllDialogs.forEach(dialog => {
+
+    let activeMessages = {}
+    state.dialogs.forEach(dialog => {
       if (dialog.userId === id) {
-        messages = dialog.messages
+        // console.log('messages: ', dialog.messages)
+        activeMessages = dialog.messages
         return true
       }
     })
 
     setActiveDialog({
-      userInfo,
-      messages,
+      activeUser,
+      activeMessages,
     })
+
   }
 
   return (
-    <Context.Provider value={{owner, users, activeDialogId, getActiveDialog, 
+    <Context.Provider value={{profile, users, activeDialogId, getActiveDialog, 
       activeDialog, newMessage, editNewMessage}}>
       <div className="page__background">
         <span className="page__background_color"></span>

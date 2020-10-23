@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext} from 'react'
 import './Dialog.css'
 
 import Context from '../../../../context'
@@ -34,7 +34,8 @@ const Dialog = ({dialog}) => {
           <div className="contact__lastmessage_wrap">
             <div className="contact__lastmessage_text">
               <p>
-                {cutLastMessage(dialog.userLastMessage.text)}
+                {cutLastMessage(dialog.lastMessage.text)}
+                {/* last message text */}
               </p>
             </div>
             <div className="dialog__settings_wrap">

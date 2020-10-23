@@ -3,12 +3,12 @@ import Context from '../../../context'
 import './Header.css'
 
 const Header = () => {
-  const {owner} = useContext(Context)
+  const {profile} = useContext(Context)
 
   return (
     <div className="header">
-      <div className="owner__foto" style={{background: `center / contain no-repeat url(${owner.ownerAvatar})`}}></div>
-      <div className="owner__control">
+      <div className="profile__foto" style={{background: `center / contain no-repeat url(${profile.avatar})`}}></div>
+      <div className="profile__control">
         <div title="Status">
           <span></span>
         </div>

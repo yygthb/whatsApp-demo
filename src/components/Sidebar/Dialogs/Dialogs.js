@@ -11,10 +11,10 @@ const Dialogs = () => {
   return (
     <ul className="dialogs__wrap">
       {
-        users.map((d, index) => {
+        users.map((user, index) => {
           return (
-            <li key={index} className={activeDialogId === d.userInfo.userId ? 'active' : ''}>
-              <Dialog dialog={d}/>
+            <li key={index} className={activeDialogId === user.userInfo.userId ? 'active' : ''}>
+              <Dialog dialog={user}/>
             </li>
           )
         })

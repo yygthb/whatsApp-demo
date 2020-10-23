@@ -7,7 +7,7 @@
   justify-content: space-between;
 }
 
-.owner__foto {
+.profile__foto {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -15,11 +15,11 @@
   cursor: pointer;
 }
 
-.owner__control {
+.profile__control {
   display: flex;
 }
 
-.owner__control div {
+.profile__control div {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -30,13 +30,13 @@
   align-items: center;
   cursor: pointer;
 }
-.owner__control div:active {
+.profile__control div:active {
   background-color: var(--header-control-background);
 }
-.owner__control div:nth-child(1) {
+.profile__control div:nth-child(1) {
   margin-left: 0px;
 }
-.owner__control div:nth-child(1) span {
+.profile__control div:nth-child(1) span {
   width: 21px;
   height: 21px;
   border-radius: 50%;

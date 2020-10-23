@@ -6,8 +6,6 @@ import Context from '../../../context'
 export default function ActiveDialog ({activeDialog}) {
   const {newMessage, editNewMessage} = useContext(Context)
 
-  console.log('activeDialog: ', activeDialog)
-
   const submitHandler = (e) => {
     e.preventDefault()
   }
@@ -19,9 +17,9 @@ export default function ActiveDialog ({activeDialog}) {
       <header className="activedialog__header">
         <div className="header__user">
           <div className="header__user_avatar" 
-        style={{background: `center / contain no-repeat url(${activeDialog.userInfo.userAvatar})`}}></div>
+        style={{background: `center / contain no-repeat url(${activeDialog.activeUser.userAvatar})`}}></div>
           <div className="header__user_info">
-            <div  className="header__user_name">{activeDialog.userInfo.userName}</div>
+            <div  className="header__user_name">{activeDialog.activeUser.userName}</div>
             <div  className="header__user_seen">last seen "date"</div>
           </div>
         </div>
@@ -41,10 +39,10 @@ export default function ActiveDialog ({activeDialog}) {
           <div className="content__main">
             <div className="content__main_messages">
               {
-                activeDialog.messages.map((message, index) => {
+                activeDialog.activeMessages.map((message, index) => {
                   return (
                     <div key={index} className={
-                      activeDialog.userInfo.userId === message.messageAuthor ? `content__message incoming` : `content__message outgoing`
+                      activeDialog.activeUser.userId === message.messageAuthor ? `content__message incoming` : `content__message outgoing`
                     }>
                       <div className="content__message_text">
                         {`auth(${message.messageAuthor}): ${message.messageText}`}

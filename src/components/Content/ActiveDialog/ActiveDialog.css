@@ -98,9 +98,10 @@
   left: 0;
 
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
 
   overflow-y: auto;
+  /* float: inline-end; */
 }
 
 .content__main_messages {
