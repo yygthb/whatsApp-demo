@@ -4,7 +4,13 @@ import faker from 'faker'
 import config from '../config'
 
 export default function getAllUsersFromDB (num, action) {
-  const users = []
+  const users = [{
+    userInfo: {
+      userId: 22,
+      userName: `Jho Silver`,
+      userAvatar: config.AVATARDEFAULT,
+    },
+  }]
 
   for (let i = 11; i <= num + 10; i++) {
     if (action === 'LOREM') {

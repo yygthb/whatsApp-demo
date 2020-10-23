@@ -11,6 +11,36 @@ import Context from './context'
 
 const dbDialogs = Dialogs()
 
+const activeDialogDebug = {
+  userInfo: {
+    userId: 22,
+    userName: `Jho Silver`,
+    userAvatar: config.AVATARDEFAULT,
+  },
+  messages: [
+    {
+      messageId: 123456,
+      messageText: 'some 1st text from user 22',
+      messageAuthor: 22
+    },
+    {
+      messageId: 123456,
+      messageText: 'Сервис проверки уникальности текста - поиск источников, подсчёт уникальности текста в процентах. Поиск цитат вашего контента с проверкой',
+      messageAuthor: 22
+    },
+    {
+      messageId: 123456,
+      messageText: 'some 1st text to user 22',
+      messageAuthor: 999
+    },
+    {
+      messageId: 123456,
+      messageText: 'some 1st text from user 22',
+      messageAuthor: 22
+    },
+  ]
+}
+
 function App() {
   // load owner info from db
   const [owner] = useState(loadOwnerInfo())
@@ -38,7 +68,7 @@ function App() {
   })
 
   // selecting active dialog from dialogs
-  const [activeDialog, setActiveDialog] = useState('')
+  const [activeDialog, setActiveDialog] = useState(activeDialogDebug)
   const [activeDialogId, setActiveDialogId] = useState('')
 
   // get dialog-id from Sidebar and push activeDialog to ContentComponent

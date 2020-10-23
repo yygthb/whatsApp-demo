@@ -216,5 +216,38 @@ export default function Dialogs () {
         }
       }
     },
+
+    // ==================== userId 22 ====================
+    {
+      userId: 22,
+      messages: [
+        {
+          messageId: 123456,
+          messageText: 'some 1st text from user 22',
+          messageAuthor: 22
+        },
+        {
+          messageId: 123456,
+          messageText: 'Сервис проверки уникальности текста - поиск источников, подсчёт уникальности текста в процентах. Поиск цитат вашего контента с проверкой',
+          messageAuthor: 22
+        },
+        {
+          messageId: 123456,
+          messageText: 'some 1st text to user 22',
+          messageAuthor: 999
+        },
+        {
+          messageId: 123456,
+          messageText: 'some 1st text from user 22',
+          messageAuthor: 22
+        },
+      ],
+      getLastMessage() {
+        return {
+          messageAuthor: this.messages[this.messages.length -1].messageAuthor,
+          text: this.messages[this.messages.length -1].messageText
+        }
+      }
+    },
   ]
 }
