@@ -4,7 +4,7 @@ export default function Input (props) {
 
   return (
     <div className="profile__input_wrap">
-      <span>About</span>
+      <span>{props.title}</span>
       <div className="input__wrap">
         <form onSubmit={(e) => props.handlerSubmit(e)}>
           <input disabled={props.handlerDisabled}

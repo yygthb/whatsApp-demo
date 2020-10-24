@@ -134,7 +134,7 @@ let store = {
     // =========== Sidebar Modal ===========
     sidebarModal: {
       title: 'Profile',
-      display: true
+      display: false
     },
   },
 

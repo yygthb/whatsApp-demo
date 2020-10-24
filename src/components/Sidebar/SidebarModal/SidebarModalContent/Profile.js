@@ -1,4 +1,4 @@
-import React, {useCallback, useContext, useState, useEffect} from 'react'
+import React, {useContext, useState} from 'react'
 import './Profile.css'
 import Context from '../../../../context'
 import Input from './ProfileInputWrap'
@@ -16,7 +16,6 @@ export default function Profile() {
     setDisabledName(false)
   }
   function saveProfileName (e) {
-    console.log('e: ', e)
     e.preventDefault()
     dispatch({
       type: 'SAVE_PROFILE_NAME',
@@ -39,7 +38,6 @@ export default function Profile() {
 
   function handleEscKey(e) {
     if (e.keyCode === 27) {
-      console.log('close')
       setDisabledName(true)
       setDisabledStatus(true)
       document.removeEventListener('keydown', handleEscKey)
@@ -60,6 +58,7 @@ export default function Profile() {
       </div>
       <div className="profile__name">
         <Input
+          title={'Your Name'}
           handlerSubmit={saveProfileName}
           handlerDisabled={disabledName}
           value={profileName}
@@ -74,6 +73,7 @@ export default function Profile() {
       </div>
       <div className="profile__status">
         <Input
+          title={'About'}
           handlerSubmit={saveProfileStatus}
           handlerDisabled={disabledStatus}
           value={profileStatus}
