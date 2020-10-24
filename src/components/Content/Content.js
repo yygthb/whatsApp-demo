@@ -5,14 +5,13 @@ import Context from '../../context'
 import ActiveDialog from './ActiveDialog/ActiveDialog'
 
 const Content = () => {
-
   const {activeDialog} = useContext(Context)
 
   return (
     <>
       {
         activeDialog ? 
-          <ActiveDialog activeDialog={activeDialog}/>
+          <ActiveDialog activeDialog={activeDialog} />
           :
           <div className="page__content_home">
           <h2>

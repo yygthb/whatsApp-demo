@@ -136,9 +136,18 @@ let store = {
       title: 'Profile',
       display: false
     },
+
+    // =========== New Message Text ===========
+    // newMessage: {
+    //   userId: '',
+    //   text: ''
+    // }
   },
 
   dispatch(action) {
+    if (action.type === 'TEST') {
+      console.log('test')
+    } else
     if (action.type === 'GET_ACTIVE_DIALOGS_TO_SIDEBAR') {
       let listOfDialogs = []
       this._state.dialogs.forEach(dialog => {
@@ -168,7 +177,6 @@ let store = {
         }
         return true
       })
-      this._callSibscriber()
     } else 
     if (action.type === 'OPEN_SIDEBAR_MODAL') {
       this._state.sidebarModal = {
@@ -186,12 +194,21 @@ let store = {
     } else
     if (action.type === 'SAVE_PROFILE_NAME') {
       this._state.profile.name = action.name
-      this._callSibscriber()
     } else
     if (action.type === 'SAVE_PROFILE_STATUS') {
       this._state.profile.status = action.status
-      this._callSibscriber()
+    } else 
+    if (action.type === 'SAVE_ANSENT_MESSAGE') {
+      console.log('action: ', action)
+      this._state.dialogs.forEach(dialog => {
+        if (dialog.userId === action.id) {
+          dialog.unsentMessage = action.text
+        }
+        return true
+      })
     }
+
+    this._callSibscriber()
   }
 }
 
