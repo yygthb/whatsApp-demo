@@ -13,7 +13,22 @@ function cutLastMessage(str) {
   return str
 }
 
-const Dialog = ({dialog}) => {
+const Dialog = ({dialog, activeDialogId}) => {
+  
+  let lastmessageClassName = 'contact__lastmessage_text'
+  let lastMessageText = ''
+  if (dialog.userInfo.userId === activeDialogId) {
+    lastMessageText = dialog.lastMessage.text
+    lastmessageClassName = 'contact__lastmessage_text'
+  } else {
+    if (dialog.newMessage.text === '') {
+      lastMessageText = dialog.lastMessage.text
+      lastmessageClassName = 'contact__lastmessage_text'
+    } else {
+      lastMessageText = `Draft: ${dialog.newMessage.text}`
+      lastmessageClassName = 'contact__lastmessage_text draft'
+    }
+  }
 
   const {getActiveDialog} = useContext(Context)
 
@@ -32,10 +47,11 @@ const Dialog = ({dialog}) => {
             <div className="contact__info_date">10.10.2020</div>
           </div>
           <div className="contact__lastmessage_wrap">
-            <div className="contact__lastmessage_text">
+            <div className={lastmessageClassName}>
               <p>
-                {cutLastMessage(dialog.lastMessage.text)}
-                {/* last message text */}
+                {
+                  cutLastMessage(lastMessageText)
+                }
               </p>
             </div>
             <div className="dialog__settings_wrap">

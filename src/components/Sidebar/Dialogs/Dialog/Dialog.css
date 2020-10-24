@@ -79,6 +79,9 @@
   opacity: .6;
   overflow: hidden;
 }
+.contact__lastmessage_text.draft {
+  color: var(--text--draft--color);
+}
 
 .dialog__settings_wrap {
   width: 20px;

@@ -67,7 +67,9 @@ let dbDialogs = {
           messageAuthor: 999
         },
       ],
-      unsentMessage: 'to 1',
+      newMessage: {
+        text: ''
+      },
       getLastMessage() {
         return {
           text: this.messages[this.messages.length -1].messageText
@@ -84,7 +86,9 @@ let dbDialogs = {
           messageAuthor: 2
         },
       ],
-      unsentMessage: 'to 2',
+      newMessage: {
+        text: ''
+      },
       getLastMessage() {
         return {
           text: this.messages[this.messages.length -1].messageText
@@ -146,7 +150,9 @@ let dbDialogs = {
           messageAuthor: 3
         },
       ],
-      unsentMessage: 'to 3',
+      newMessage: {
+        text: ''
+      },
       getLastMessage() {
         return {
           text: this.messages[this.messages.length -1].messageText
@@ -188,7 +194,9 @@ let dbDialogs = {
           messageAuthor: 4
         },
       ],
-      unsentMessage: 'to 4',
+      newMessage: {
+        text: 'unsent text to 4'
+      },
       getLastMessage() {
         return {
           text: this.messages[this.messages.length -1].messageText

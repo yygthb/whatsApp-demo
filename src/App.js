@@ -39,16 +39,20 @@ function App() {
         return true
       }
     })
+    let unsentMessage = {}
     let activeMessages = {}
     state.dialogs.forEach(dialog => {
       if (dialog.userId === id) {
         activeMessages = dialog.messages
+        unsentMessage = dialog.newMessage
         return true
       }
     })
     setActiveDialog({
       activeUser,
       activeMessages,
+      newMessage: state.newMessage,
+      unsentMessage
     })
   }
 

@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, {useContext} from 'react'
 import './ActiveDialog.css'
 
 import Context from '../../../context'
@@ -6,17 +6,19 @@ import Context from '../../../context'
 export default function ActiveDialog ({activeDialog}) {
   const {dispatch} = useContext(Context)
 
-  const [input, setInput] = useState('')
-
   // input
   const submitHandler = (e) => {
     e.preventDefault()
     dispatch({
       type: 'SEND_NEW_MESSAGE',
       id: activeDialog.activeUser.userId,
-      text: input
+      text: activeDialog.unsentMessage.text
     })
-    setInput('')
+    dispatch({
+      type: 'UPDATE_NEW_MESSAGE_TEXT',
+      id: activeDialog.activeUser.userId,
+      text: '',
+    })
   }
 
   // // div-input
@@ -115,9 +117,13 @@ export default function ActiveDialog ({activeDialog}) {
             type="text"
             className="input__form_text"
             placeholder="Type a message"
-            value={input}
+            value={activeDialog.unsentMessage.text}
             onChange={e => {
-              setInput(e.target.value)
+              dispatch({
+                type: 'UPDATE_NEW_MESSAGE_TEXT',
+                id: activeDialog.activeUser.userId,
+                text: e.target.value,
+              })
             }}
           ></input>
         </form>

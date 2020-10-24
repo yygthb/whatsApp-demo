@@ -137,11 +137,6 @@ let store = {
       display: false
     },
 
-    // =========== New Message Text ===========
-    // newMessage: {
-    //   userId: '',
-    //   text: ''
-    // }
   },
 
   dispatch(action) {
@@ -159,7 +154,8 @@ let store = {
                 userName: user.userName,
                 userAvatar: user.userAvatar
               },
-              lastMessage: dialog.getLastMessage({})
+              lastMessage: dialog.getLastMessage({}),
+              newMessage: dialog.newMessage
             })
           }
         })
@@ -198,13 +194,11 @@ let store = {
     if (action.type === 'SAVE_PROFILE_STATUS') {
       this._state.profile.status = action.status
     } else 
-    if (action.type === 'SAVE_ANSENT_MESSAGE') {
-      console.log('action: ', action)
+    if (action.type === 'UPDATE_NEW_MESSAGE_TEXT') {
       this._state.dialogs.forEach(dialog => {
         if (dialog.userId === action.id) {
-          dialog.unsentMessage = action.text
+          dialog.newMessage.text = action.text
         }
-        return true
       })
     }
 
