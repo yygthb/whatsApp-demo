@@ -1,6 +1,6 @@
 .search-field {
   background-color: var(--sidebar-search-background);
-  height: 47px;
+  height: 48px;
   border-bottom: 1px solid var(--sidebar-border-color);
   padding-top: 6px;
 }

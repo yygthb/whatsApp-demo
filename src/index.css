@@ -11,6 +11,7 @@
   --page-shadow-rgb: rgb(162, 162, 162);
   --page-margin-top: 19px;
   --page-margin-top-bottom: 38px;
+  --profile--main--color: #00bfa5;
   --sidebar-background-color: white;
   --sidebar-border-color: #e4e4e4;
   --sidebar-active-dialog-background: #ebebeb;
@@ -23,6 +24,7 @@
   --scroll-track-color: #f6f6f6;
   --scroll-thumb-color: #dfdbdb;
   --search-container-background: #f6f6f6;
+  --text--light--grey--color: grey;
 }
 
 * {

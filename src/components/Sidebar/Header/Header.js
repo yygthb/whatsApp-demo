@@ -3,11 +3,15 @@ import Context from '../../../context'
 import './Header.css'
 
 const Header = () => {
-  const {profile} = useContext(Context)
+  const {profile, dispatch} = useContext(Context)
 
   return (
     <div className="header">
-      <div className="profile__foto" style={{background: `center / contain no-repeat url(${profile.avatar})`}}></div>
+      <div 
+        className="profile__foto" 
+        style={{background: `center / contain no-repeat url(${profile.avatar})`}}
+        onClick={() => dispatch({type: 'OPEN_SIDEBAR_MODAL', title: 'Profile'})}
+      ></div>
       <div className="profile__control">
         <div title="Status">
           <span></span>

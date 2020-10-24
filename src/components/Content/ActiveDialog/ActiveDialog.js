@@ -108,7 +108,7 @@ export default function ActiveDialog ({activeDialog}) {
             contentEditable={true}
             id="div__form_text"
             className="div__form_text"
-            placeholder="Type a message"
+            data-placeholder="Type a message"
             onInput={(e) => {
               setInput(e.target.textContent)
             }}

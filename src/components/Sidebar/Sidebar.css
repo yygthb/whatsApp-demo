@@ -1,7 +1,8 @@
-.sidebar {
-  border-right: 1px solid var(--sidebar-border-color);
+.sidebar__wrap {
+  position: relative;
 }
 
-.contacts {
-	position: absolute;
+.sidebar {
+  /* border-right: 1px solid var(--sidebar-border-color); */
+  /* position: unset; */
 }

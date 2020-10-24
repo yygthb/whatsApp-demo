@@ -1,9 +1,10 @@
 .dialogs__wrap {
-  width: calc(var(--sidebar-width-30) - 1px);
-  padding: 0 3px;
+  /* width: calc(var(--sidebar-width-30) - 1px); */
+  width: 100%;
+  /* padding: 0 3px; */
 	background-color: #FFF;
 	position: absolute;
-	top: 108px;
+	top: 107px;
 	left: 0; 
 	bottom: 0;
 	overflow-x: hidden;
@@ -14,7 +15,7 @@
   cursor: pointer;
 }
 
-@media only screen and (max-width: 1300px) {
+/* @media only screen and (max-width: 1300px) {
   .dialogs__wrap {
     width: calc(var(--sidebar-width-35) - 1px);
   }
@@ -24,4 +25,4 @@
   .dialogs__wrap {
     width: calc(var(--sidebar-width-40) - 1px);
   }
-}
+} */

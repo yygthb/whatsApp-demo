@@ -16,48 +16,129 @@ let store = {
       id: 999,
       name: 'John Wick',
       avatar: config.AVATAR_PROFILE,
+      status: 'Jardani Jovonovich',
     },
 
     // =========== Users ===========
     users: [
       {
         userId: 1,
-        // userName: `User Name 1`,
-        // userAvatar: config.AVATAR_DEFAULT,
-        userName: faker.name.findName(),
-        userAvatar: faker.image.avatar(),
+        userName: `User Name 1`,
+        userAvatar: config.AVATAR_DEFAULT,
+        // userName: faker.name.findName(),
+        // userAvatar: faker.image.avatar(),
       },
       {
         userId: 2,
-        // userName: `User Name 2`,
-        // userAvatar: config.AVATAR_DEFAULT,
-        userName: faker.name.findName(),
-        userAvatar: faker.image.avatar(),
+        userName: `User Name 2`,
+        userAvatar: config.AVATAR_DEFAULT,
+        // userName: faker.name.findName(),
+        // userAvatar: faker.image.avatar(),
       },
       {
         userId: 3,
-        // userName: `User Name 3`,
-        // userAvatar: config.AVATAR_DEFAULT,
-        userName: faker.name.findName(),
-        userAvatar: faker.image.avatar(),
+        userName: `User Name 3`,
+        userAvatar: config.AVATAR_DEFAULT,
+        // userName: faker.name.findName(),
+        // userAvatar: faker.image.avatar(),
       },
       {
         userId: 4,
-        // userName: `User Name 4`,
-        // userAvatar: config.AVATAR_DEFAULT,
-        userName: faker.name.findName(),
-        userAvatar: faker.image.avatar(),
+        userName: `User Name 4`,
+        userAvatar: config.AVATAR_DEFAULT,
+        // userName: faker.name.findName(),
+        // userAvatar: faker.image.avatar(),
       },
+      // {
+      //   userId: 4,
+      //   // userName: `User Name 4`,
+      //   // userAvatar: config.AVATAR_DEFAULT,
+      //   userName: faker.name.findName(),
+      //   userAvatar: faker.image.avatar(),
+      // },
+      // {
+      //   userId: 4,
+      //   // userName: `User Name 4`,
+      //   // userAvatar: config.AVATAR_DEFAULT,
+      //   userName: faker.name.findName(),
+      //   userAvatar: faker.image.avatar(),
+      // },
+      // {
+      //   userId: 4,
+      //   // userName: `User Name 4`,
+      //   // userAvatar: config.AVATAR_DEFAULT,
+      //   userName: faker.name.findName(),
+      //   userAvatar: faker.image.avatar(),
+      // },
+      // {
+      //   userId: 4,
+      //   // userName: `User Name 4`,
+      //   // userAvatar: config.AVATAR_DEFAULT,
+      //   userName: faker.name.findName(),
+      //   userAvatar: faker.image.avatar(),
+      // },
+      // {
+      //   userId: 4,
+      //   // userName: `User Name 4`,
+      //   // userAvatar: config.AVATAR_DEFAULT,
+      //   userName: faker.name.findName(),
+      //   userAvatar: faker.image.avatar(),
+      // },
+      // {
+      //   userId: 4,
+      //   // userName: `User Name 4`,
+      //   // userAvatar: config.AVATAR_DEFAULT,
+      //   userName: faker.name.findName(),
+      //   userAvatar: faker.image.avatar(),
+      // },
+      // {
+      //   userId: 4,
+      //   // userName: `User Name 4`,
+      //   // userAvatar: config.AVATAR_DEFAULT,
+      //   userName: faker.name.findName(),
+      //   userAvatar: faker.image.avatar(),
+      // },
+      // {
+      //   userId: 4,
+      //   // userName: `User Name 4`,
+      //   // userAvatar: config.AVATAR_DEFAULT,
+      //   userName: faker.name.findName(),
+      //   userAvatar: faker.image.avatar(),
+      // },
+      // {
+      //   userId: 4,
+      //   // userName: `User Name 4`,
+      //   // userAvatar: config.AVATAR_DEFAULT,
+      //   userName: faker.name.findName(),
+      //   userAvatar: faker.image.avatar(),
+      // },
+      // {
+      //   userId: 4,
+      //   // userName: `User Name 4`,
+      //   // userAvatar: config.AVATAR_DEFAULT,
+      //   userName: faker.name.findName(),
+      //   userAvatar: faker.image.avatar(),
+      // },
+      // {
+      //   userId: 4,
+      //   // userName: `User Name 4`,
+      //   // userAvatar: config.AVATAR_DEFAULT,
+      //   userName: faker.name.findName(),
+      //   userAvatar: faker.image.avatar(),
+      // },
     ],
 
     // =========== Dialogs ===========
-    dialogs: dbDialogs.dialogs
+    dialogs: dbDialogs.dialogs,
+
+    // =========== Sidebar Modal ===========
+    sidebarModal: {
+      title: 'Profile',
+      display: true
+    },
   },
 
   dispatch(action) {
-    if (action.type === 'TEST') {
-      console.log('test')
-    } else
     if (action.type === 'GET_ACTIVE_DIALOGS_TO_SIDEBAR') {
       let listOfDialogs = []
       this._state.dialogs.forEach(dialog => {
@@ -88,8 +169,30 @@ let store = {
         return true
       })
       this._callSibscriber()
+    } else 
+    if (action.type === 'OPEN_SIDEBAR_MODAL') {
+      this._state.sidebarModal = {
+        title: action.title,
+        display: true,
+      }
+      this._callSibscriber()
+    } else
+    if (action.type === 'CLOSE_SIDEBAR_MODAL') {
+      this._state.sidebarModal = {
+        title: action.title,
+        display: false,
+      }
+      this._callSibscriber()
+    } else
+    if (action.type === 'SAVE_PROFILE_NAME') {
+      this._state.profile.name = action.name
+      this._callSibscriber()
+    } else
+    if (action.type === 'SAVE_PROFILE_STATUS') {
+      this._state.profile.status = action.status
+      this._callSibscriber()
     }
-  },
+  }
 }
 
 window.state = store._state
