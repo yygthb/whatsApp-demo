@@ -13,11 +13,11 @@ function cutLastMessage(str) {
   return str
 }
 
-const Dialog = ({dialog, activeDialogId}) => {
+const Dialog = ({dialog, colorDialogId, dispatch}) => {
   
   let lastmessageClassName = 'contact__lastmessage_text'
   let lastMessageText = ''
-  if (dialog.userInfo.userId === activeDialogId) {
+  if (dialog.userInfo.userId === colorDialogId) {
     lastMessageText = dialog.lastMessage.text
     lastmessageClassName = 'contact__lastmessage_text'
   } else {
@@ -35,6 +35,7 @@ const Dialog = ({dialog, activeDialogId}) => {
   return (
     <div className="dialog__wrap" onClick={() => {
       getActiveDialog(dialog.userInfo.userId)
+      dispatch({type: 'GET_ACTIVE_DIALOG_ID', id: dialog.userInfo.userId})
     }}>
       <div className="contact__avatar" 
         style={{background: `center / contain no-repeat url(${dialog.userInfo.userAvatar})`}}></div>

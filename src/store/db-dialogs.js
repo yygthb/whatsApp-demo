@@ -71,6 +71,7 @@ let dbDialogs = {
         }
       }
     },
+
     // ====== 2 ======
     {
       userId: 2,
@@ -90,6 +91,7 @@ let dbDialogs = {
         }
       }
     },
+
     // ====== 3 ======
     {
       userId: 3,
@@ -154,6 +156,7 @@ let dbDialogs = {
         }
       }
     },
+
     // ====== 4 ======
     {
       userId: 4,

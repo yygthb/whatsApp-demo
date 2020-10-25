@@ -27,40 +27,19 @@ function App() {
 
   // selecting active dialog from dialogs
   const [activeDialog, setActiveDialog] = useState('')
-  const [activeDialogId, setActiveDialogId] = useState('')
+  const [colorDialogId, setcolorDialogId] = useState('')
 
   // get dialog-id from Sidebar and push activeDialog to ContentComponent
   function getActiveDialog(id) {
-    setActiveDialogId(id)
-    let activeUser = {}
-    state.users.forEach(user => {
-      if (user.userId === id) {
-        activeUser = user
-        return true
-      }
-    })
-    let unsentMessage = {}
-    let activeMessages = {}
-    state.dialogs.forEach(dialog => {
-      if (dialog.userId === id) {
-        activeMessages = dialog.messages
-        unsentMessage = dialog.newMessage
-        return true
-      }
-    })
-    setActiveDialog({
-      activeUser,
-      activeMessages,
-      newMessage: state.newMessage,
-      unsentMessage
-    })
+    setcolorDialogId(id)
+    setActiveDialog(state.activeDialog)
   }
 
   // sidebar modal (Profile settings)
   const sidebarModal = state.sidebarModal
 
   return (
-    <Context.Provider value={{profile, users, activeDialogId, getActiveDialog, activeDialog, divInput, dispatch, sidebarModal}}>
+    <Context.Provider value={{profile, users, colorDialogId, getActiveDialog, activeDialog, divInput, dispatch, sidebarModal}}>
       <div className="page__background">
         <span className="page__background_color"></span>
         <span className="page__background_color"></span>

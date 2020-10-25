@@ -1,7 +1,42 @@
-import React, {useContext} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
+import InfiniteScroll from "react-infinite-scroll-component";
 import './ActiveDialog.css'
 
 import Context from '../../../context'
+
+const style = {
+  height: 100,
+  border: "1px solid green",
+  margin: 20,
+  padding: 8,
+};
+
+function Test ({activeDialog}) {
+  const {dispatch} = useContext(Context)
+
+  return (
+    <div>
+      <div id="scrollableDiv" 
+      style={{ height: '400px', backgroundColor: 'white', overflowY: 'scroll',  overflow: 'auto', display: 'flex', flexDirection: 'column-reverse', }}
+      >
+        <InfiniteScroll
+          style={{ display: 'flex', flexDirection: 'column-reverse' }}
+          dataLength={2}
+          next={() => {}}
+          inverse={true}
+          hasMore={true}
+          scrollableTarget="scrollableDiv"
+        >
+          {
+                <div style={style} key={1}>
+                  text
+                </div>
+          }
+        </InfiniteScroll>
+      </div>
+    </div>
+  )
+}
 
 export default function ActiveDialog ({activeDialog}) {
   const {dispatch} = useContext(Context)
@@ -20,26 +55,6 @@ export default function ActiveDialog ({activeDialog}) {
       text: '',
     })
   }
-
-  // // div-input
-  // const [input, setInput] = useState('')
-  // function keydownHandler(e){
-  //   // if(e.keyCode===13 && e.ctrlKey) {
-  //   if(e.keyCode===13) {
-  //     e.preventDefault()
-  //     if (input !== '') {
-  //       divInput(activeDialog.activeUser.userId, input)
-  //       document.querySelector('.div__form_text').innerHTML = ""
-  //       setInput('')
-  //     }
-  //   }
-  // }
-  // useEffect(() => {
-  //   window.addEventListener('keydown', keydownHandler)
-  //   return () => {
-  //     window.removeEventListener('keydown', keydownHandler)
-  //   }
-  // })
 
   return (
     <div className="activedialog__wrap">
@@ -68,6 +83,8 @@ export default function ActiveDialog ({activeDialog}) {
       <main className="activedialog__content">
         <div className="activedialog__content_background"></div>
           <div className="content__main">
+            {/* <Test activeDialog={activeDialog}/> */}
+
             <div className="content__main_messages">
               {
                 activeDialog.activeMessages.map((message, index) => {
@@ -83,6 +100,7 @@ export default function ActiveDialog ({activeDialog}) {
                 })
               }
             </div>
+
           </div>
       </main>
 
@@ -127,19 +145,6 @@ export default function ActiveDialog ({activeDialog}) {
             }}
           ></input>
         </form>
-
-        {/* input div Form */}
-        {/* <form className="input__form">
-          <div 
-            contentEditable={true}
-            id="div__form_text"
-            className="div__form_text"
-            data-placeholder="Type a message"
-            onInput={(e) => {
-              setInput(e.target.textContent)
-            }}
-          ></div>
-        </form> */}
 
       </footer>
     </div>

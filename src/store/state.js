@@ -137,12 +137,20 @@ let store = {
       display: ''
     },
 
+    // =========== Active Dialog ===========
+    activeDialog: {
+      activeUser: '',
+      activeMessages: [],
+      unsentMessage: ''
+    }
+
   },
 
   dispatch(action) {
     if (action.type === 'TEST') {
       console.log('test')
     } else
+
     if (action.type === 'GET_ACTIVE_DIALOGS_TO_SIDEBAR') {
       let listOfDialogs = []
       this._state.dialogs.forEach(dialog => {
@@ -162,6 +170,7 @@ let store = {
       })
       return listOfDialogs
     } else 
+
     if (action.type === 'SEND_NEW_MESSAGE') {
       this._state.dialogs.forEach(dialog => {
         if (dialog.userId === action.id) {
@@ -174,6 +183,7 @@ let store = {
         return true
       })
     } else 
+
     if (action.type === 'OPEN_SIDEBAR_MODAL') {
       this._state.sidebarModal = {
         title: action.title,
@@ -181,6 +191,7 @@ let store = {
       }
       this._callSibscriber()
     } else
+
     if (action.type === 'CLOSE_SIDEBAR_MODAL') {
       this._state.sidebarModal = {
         title: action.title,
@@ -188,16 +199,35 @@ let store = {
       }
       this._callSibscriber()
     } else
+
     if (action.type === 'SAVE_PROFILE_NAME') {
       this._state.profile.name = action.name
     } else
+
     if (action.type === 'SAVE_PROFILE_STATUS') {
       this._state.profile.status = action.status
     } else 
+
     if (action.type === 'UPDATE_NEW_MESSAGE_TEXT') {
       this._state.dialogs.forEach(dialog => {
         if (dialog.userId === action.id) {
           dialog.newMessage.text = action.text
+        }
+      })
+    } else
+
+    if (action.type === 'GET_ACTIVE_DIALOG_ID') {
+      this._state.users.forEach(user => {
+        if (user.userId === action.id) {
+          this._state.activeDialog.activeUser = user
+          return
+        }
+      })
+      this._state.dialogs.forEach(dialog => {
+        if (dialog.userId === action.id) {
+          this._state.activeDialog.activeMessages = dialog.messages
+          this._state.activeDialog.unsentMessage = dialog.newMessage
+          return
         }
       })
     }
