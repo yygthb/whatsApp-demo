@@ -40,6 +40,8 @@ export default function Profile() {
     if (e.keyCode === 27) {
       setDisabledName(true)
       setDisabledStatus(true)
+      setProfileName(profile.name)
+      setProfileStatus(profile.status)
       document.removeEventListener('keydown', handleEscKey)
     }
   }

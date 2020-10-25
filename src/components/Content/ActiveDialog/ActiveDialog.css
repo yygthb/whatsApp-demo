@@ -108,9 +108,9 @@
 
 .content__main_messages {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   margin: auto 0 0;
-  padding: 0 9% 8px 9%;
+  padding: 20px 9% 8px 9%;
 }
 
 .content__message {

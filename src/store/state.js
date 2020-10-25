@@ -134,7 +134,7 @@ let store = {
     // =========== Sidebar Modal ===========
     sidebarModal: {
       title: 'Profile',
-      display: false
+      display: ''
     },
 
   },
@@ -165,7 +165,7 @@ let store = {
     if (action.type === 'SEND_NEW_MESSAGE') {
       this._state.dialogs.forEach(dialog => {
         if (dialog.userId === action.id) {
-          dialog.messages.push({
+          dialog.messages.unshift({
             messageId: 123456,
             messageText: action.text,
             messageAuthor: 999
