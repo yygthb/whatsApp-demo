@@ -3,6 +3,8 @@ import './Dialog.css'
 
 import Context from '../../../../context'
 
+import {getActiveDialogIdAC} from '../../../../store/state'
+
 // if message > 28 symbs, add ... at the end
 function cutLastMessage(str) {
   let cut = ''
@@ -35,7 +37,7 @@ const Dialog = ({dialog, colorDialogId, dispatch}) => {
   return (
     <div className="dialog__wrap" onClick={() => {
       getActiveDialog(dialog.userInfo.userId)
-      dispatch({type: 'GET_ACTIVE_DIALOG_ID', id: dialog.userInfo.userId})
+      dispatch(getActiveDialogIdAC(dialog.userInfo.userId))
     }}>
       <div className="contact__avatar" 
         style={{background: `center / contain no-repeat url(${dialog.userInfo.userAvatar})`}}></div>

@@ -2,6 +2,8 @@ import React, {useContext} from 'react'
 import Context from '../../../context'
 import './Header.css'
 
+import {openSidebarModalAC} from '../../../store/sidebarModalReducer'
+
 const Header = () => {
   const {profile, dispatch} = useContext(Context)
 
@@ -10,7 +12,7 @@ const Header = () => {
       <div 
         className="profile__foto" 
         style={{background: `center / contain no-repeat url(${profile.avatar})`}}
-        onClick={() => dispatch({type: 'OPEN_SIDEBAR_MODAL', title: 'Profile'})}
+        onClick={() => dispatch(openSidebarModalAC('Profile'))}
       ></div>
       <div className="profile__control">
         <div title="Status">

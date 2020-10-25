@@ -3,6 +3,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import './ActiveDialog.css'
 
 import Context from '../../../context'
+import {sendMessageAC, updateNewMessageTextAC} from '../../../store/dialogsReducer'
 
 const style = {
   height: 100,
@@ -44,16 +45,8 @@ export default function ActiveDialog ({activeDialog}) {
   // input
   const submitHandler = (e) => {
     e.preventDefault()
-    dispatch({
-      type: 'SEND_NEW_MESSAGE',
-      id: activeDialog.activeUser.userId,
-      text: activeDialog.unsentMessage.text
-    })
-    dispatch({
-      type: 'UPDATE_NEW_MESSAGE_TEXT',
-      id: activeDialog.activeUser.userId,
-      text: '',
-    })
+    dispatch(sendMessageAC(activeDialog.activeUser.userId, activeDialog.unsentMessage.text))
+    dispatch(updateNewMessageTextAC(activeDialog.activeUser.userId, ''))
   }
 
   return (
@@ -137,11 +130,7 @@ export default function ActiveDialog ({activeDialog}) {
             placeholder="Type a message"
             value={activeDialog.unsentMessage.text}
             onChange={e => {
-              dispatch({
-                type: 'UPDATE_NEW_MESSAGE_TEXT',
-                id: activeDialog.activeUser.userId,
-                text: e.target.value,
-              })
+              dispatch(updateNewMessageTextAC(activeDialog.activeUser.userId, e.target.value))
             }}
           ></input>
         </form>

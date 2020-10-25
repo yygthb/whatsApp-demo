@@ -3,6 +3,8 @@ import './Profile.css'
 import Context from '../../../../context'
 import Input from './ProfileInputWrap'
 
+import {saveProfileNameAC, saveProfileStatusAC} from '../../../../store/profileReducer'
+
 export default function Profile() {
   const {profile, dispatch} = useContext(Context)
 
@@ -17,10 +19,7 @@ export default function Profile() {
   }
   function saveProfileName (e) {
     e.preventDefault()
-    dispatch({
-      type: 'SAVE_PROFILE_NAME',
-      name: profileName
-    })
+    dispatch(saveProfileNameAC(profileName))
     setDisabledName(true)
   }
 
@@ -29,10 +28,7 @@ export default function Profile() {
   }
   function saveProfileStatus (e) {
     e.preventDefault()
-    dispatch({
-      type: 'SAVE_PROFILE_STATUS',
-      status: profileStatus
-    })
+    dispatch(saveProfileStatusAC(profileStatus))
     setDisabledStatus(true)
   }
 

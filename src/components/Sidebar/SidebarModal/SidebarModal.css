@@ -7,10 +7,13 @@
 
   background-color: white;
   transition: .5s;
+  border-right: 1px solid var(--sidebar-border-color);
 }
 .sidebar__modal_wrap.open {
   left: 0;
   transition: .5s;
+  
+  width: calc(100% + 2px);
 }
 
 .sidebar__modal_header {

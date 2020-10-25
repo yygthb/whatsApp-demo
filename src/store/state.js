@@ -3,6 +3,13 @@ import faker from 'faker'
 import config from '../config'
 import dbDialogs from './db-dialogs'
 
+import profileReducer from './profileReducer'
+import sidebarModalReducer from './sidebarModalReducer'
+import dialogsReducer from './dialogsReducer'
+
+const GET_ACTIVE_DIALOGS_TO_SIDEBAR = 'GET_ACTIVE_DIALOGS_TO_SIDEBAR'
+const GET_ACTIVE_DIALOG_ID = 'GET_ACTIVE_DIALOG_ID'
+
 let store = {
   getState() {
     return this._state
@@ -49,83 +56,6 @@ let store = {
         // userName: faker.name.findName(),
         // userAvatar: faker.image.avatar(),
       },
-      // {
-      //   userId: 4,
-      //   // userName: `User Name 4`,
-      //   // userAvatar: config.AVATAR_DEFAULT,
-      //   userName: faker.name.findName(),
-      //   userAvatar: faker.image.avatar(),
-      // },
-      // {
-      //   userId: 4,
-      //   // userName: `User Name 4`,
-      //   // userAvatar: config.AVATAR_DEFAULT,
-      //   userName: faker.name.findName(),
-      //   userAvatar: faker.image.avatar(),
-      // },
-      // {
-      //   userId: 4,
-      //   // userName: `User Name 4`,
-      //   // userAvatar: config.AVATAR_DEFAULT,
-      //   userName: faker.name.findName(),
-      //   userAvatar: faker.image.avatar(),
-      // },
-      // {
-      //   userId: 4,
-      //   // userName: `User Name 4`,
-      //   // userAvatar: config.AVATAR_DEFAULT,
-      //   userName: faker.name.findName(),
-      //   userAvatar: faker.image.avatar(),
-      // },
-      // {
-      //   userId: 4,
-      //   // userName: `User Name 4`,
-      //   // userAvatar: config.AVATAR_DEFAULT,
-      //   userName: faker.name.findName(),
-      //   userAvatar: faker.image.avatar(),
-      // },
-      // {
-      //   userId: 4,
-      //   // userName: `User Name 4`,
-      //   // userAvatar: config.AVATAR_DEFAULT,
-      //   userName: faker.name.findName(),
-      //   userAvatar: faker.image.avatar(),
-      // },
-      // {
-      //   userId: 4,
-      //   // userName: `User Name 4`,
-      //   // userAvatar: config.AVATAR_DEFAULT,
-      //   userName: faker.name.findName(),
-      //   userAvatar: faker.image.avatar(),
-      // },
-      // {
-      //   userId: 4,
-      //   // userName: `User Name 4`,
-      //   // userAvatar: config.AVATAR_DEFAULT,
-      //   userName: faker.name.findName(),
-      //   userAvatar: faker.image.avatar(),
-      // },
-      // {
-      //   userId: 4,
-      //   // userName: `User Name 4`,
-      //   // userAvatar: config.AVATAR_DEFAULT,
-      //   userName: faker.name.findName(),
-      //   userAvatar: faker.image.avatar(),
-      // },
-      // {
-      //   userId: 4,
-      //   // userName: `User Name 4`,
-      //   // userAvatar: config.AVATAR_DEFAULT,
-      //   userName: faker.name.findName(),
-      //   userAvatar: faker.image.avatar(),
-      // },
-      // {
-      //   userId: 4,
-      //   // userName: `User Name 4`,
-      //   // userAvatar: config.AVATAR_DEFAULT,
-      //   userName: faker.name.findName(),
-      //   userAvatar: faker.image.avatar(),
-      // },
     ],
 
     // =========== Dialogs ===========
@@ -133,7 +63,7 @@ let store = {
 
     // =========== Sidebar Modal ===========
     sidebarModal: {
-      title: 'Profile',
+      title: '',
       display: ''
     },
 
@@ -142,81 +72,32 @@ let store = {
       activeUser: '',
       activeMessages: [],
       unsentMessage: ''
-    }
+    },
+
+    u: []
 
   },
 
   dispatch(action) {
-    if (action.type === 'TEST') {
-      console.log('test')
-    } else
 
-    if (action.type === 'GET_ACTIVE_DIALOGS_TO_SIDEBAR') {
+    if (action.type === GET_ACTIVE_DIALOGS_TO_SIDEBAR) {
       let listOfDialogs = []
       this._state.dialogs.forEach(dialog => {
-        this._state.users.forEach(user => {
-          if (dialog.userId === user.userId) {
-            listOfDialogs.push({
-              userInfo: {
-                userId: user.userId,
-                userName: user.userName,
-                userAvatar: user.userAvatar
-              },
-              lastMessage: dialog.getLastMessage({}),
-              newMessage: dialog.newMessage
-            })
-          }
+        listOfDialogs.push({
+          userInfo: {
+            userId: dialog.userId,
+            userName: dialog.userName,
+            userAvatar: dialog.userAvatar
+          },
+          lastMessage: dialog.getLastMessage({}),
+          newMessage: dialog.newMessage
         })
+        return
       })
       return listOfDialogs
     } else 
 
-    if (action.type === 'SEND_NEW_MESSAGE') {
-      this._state.dialogs.forEach(dialog => {
-        if (dialog.userId === action.id) {
-          dialog.messages.unshift({
-            messageId: 123456,
-            messageText: action.text,
-            messageAuthor: 999
-          })
-        }
-        return true
-      })
-    } else 
-
-    if (action.type === 'OPEN_SIDEBAR_MODAL') {
-      this._state.sidebarModal = {
-        title: action.title,
-        display: true,
-      }
-      this._callSibscriber()
-    } else
-
-    if (action.type === 'CLOSE_SIDEBAR_MODAL') {
-      this._state.sidebarModal = {
-        title: action.title,
-        display: false,
-      }
-      this._callSibscriber()
-    } else
-
-    if (action.type === 'SAVE_PROFILE_NAME') {
-      this._state.profile.name = action.name
-    } else
-
-    if (action.type === 'SAVE_PROFILE_STATUS') {
-      this._state.profile.status = action.status
-    } else 
-
-    if (action.type === 'UPDATE_NEW_MESSAGE_TEXT') {
-      this._state.dialogs.forEach(dialog => {
-        if (dialog.userId === action.id) {
-          dialog.newMessage.text = action.text
-        }
-      })
-    } else
-
-    if (action.type === 'GET_ACTIVE_DIALOG_ID') {
+    if (action.type === GET_ACTIVE_DIALOG_ID) {
       this._state.users.forEach(user => {
         if (user.userId === action.id) {
           this._state.activeDialog.activeUser = user
@@ -230,12 +111,28 @@ let store = {
           return
         }
       })
-    }
+    } 
+
+    this._state.dialogs = dialogsReducer(this._state.dialogs, action)
+    this._state.sidebarModal = sidebarModalReducer(this._state.sidebarModal, action)
+    this._state.profile = profileReducer(this._state.profile, action)
 
     this._callSibscriber()
   }
 }
 
 window.state = store._state
+
+export const getActiveDialogsToSidebarAC = () => {
+  return {
+    type: GET_ACTIVE_DIALOGS_TO_SIDEBAR
+  }
+}
+export const getActiveDialogIdAC = (id) => {
+  return {
+    type: GET_ACTIVE_DIALOG_ID,
+    id,
+  }
+}
 
 export default store

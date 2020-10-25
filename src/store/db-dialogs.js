@@ -1,10 +1,14 @@
 // dialogs database
 
+import config from '../config'
+
 let dbDialogs = {
   dialogs: [
     // ====== 1 ======
     {
       userId: 1,
+      userName: `User Name 1`,
+      userAvatar: config.AVATAR_DEFAULT,
       messages: [
         {
           messageId: 123456,
@@ -75,6 +79,8 @@ let dbDialogs = {
     // ====== 2 ======
     {
       userId: 2,
+      userName: `User Name 2`,
+      userAvatar: config.AVATAR_DEFAULT,
       messages: [
         {
           messageId: 123456,
@@ -95,6 +101,8 @@ let dbDialogs = {
     // ====== 3 ======
     {
       userId: 3,
+      userName: `User Name 3`,
+      userAvatar: config.AVATAR_DEFAULT,
       messages: [
         {
           messageId: 123456,
@@ -160,6 +168,8 @@ let dbDialogs = {
     // ====== 4 ======
     {
       userId: 4,
+      userName: `User Name 4`,
+      userAvatar: config.AVATAR_DEFAULT,
       messages: [
         {
           messageId: 123456,

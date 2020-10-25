@@ -6,6 +6,8 @@ import MainPage from './components/MainPage'
 import Context from './context'
 import store from './store/state'
 
+import {getActiveDialogsToSidebarAC} from './store/state'
+
 function App() {
   const state = store.getState()
   const dispatch = store.dispatch.bind(store)
@@ -13,17 +15,7 @@ function App() {
   // load profile info from db
   const profile = state.profile
   // load users to sidebar from db
-  const users = dispatch({type: 'GET_ACTIVE_DIALOGS_TO_SIDEBAR'})
-
-  // new message from div-input
-  function divInput(id, text) {
-    // store.divNewMessaege(id, text)
-    dispatch({
-      type: 'SEND_NEW_MESSAGE',
-      id,
-      text,
-    })
-  }
+  const users = dispatch(getActiveDialogsToSidebarAC())
 
   // selecting active dialog from dialogs
   const [activeDialog, setActiveDialog] = useState('')
@@ -39,7 +31,7 @@ function App() {
   const sidebarModal = state.sidebarModal
 
   return (
-    <Context.Provider value={{profile, users, colorDialogId, getActiveDialog, activeDialog, divInput, dispatch, sidebarModal}}>
+    <Context.Provider value={{profile, users, colorDialogId, getActiveDialog, activeDialog, dispatch, sidebarModal}}>
       <div className="page__background">
         <span className="page__background_color"></span>
         <span className="page__background_color"></span>
