@@ -19,10 +19,9 @@ export const sendMessageAC = (id, text) => {
 export default function dialogsReducer (state, action) {
 
   switch (action.type) {
-
     case UPDATE_NEW_MESSAGE_TEXT:
       state.forEach(dialog => {
-        if (dialog.userId === action.id) {
+        if (dialog.userInfo.userId === action.id) {
           dialog.newMessage.text = action.text
         }
         return
@@ -30,7 +29,7 @@ export default function dialogsReducer (state, action) {
       return state
     case SEND_NEW_MESSAGE:
       state.forEach(dialog => {
-        if (dialog.userId === action.id) {
+        if (dialog.userInfo.userId === action.id) {
           dialog.messages.unshift({
             messageId: 123456,
             messageText: action.text,
