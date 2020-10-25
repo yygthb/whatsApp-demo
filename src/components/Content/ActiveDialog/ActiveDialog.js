@@ -2,44 +2,69 @@ import React, {useContext, useEffect, useState} from 'react'
 import InfiniteScroll from "react-infinite-scroll-component";
 import './ActiveDialog.css'
 
-import Context from '../../../context'
+import './Test.css'
 
-const style = {
-  height: 100,
-  border: "1px solid green",
-  margin: 20,
-  padding: 8,
-};
+import Context from '../../../context'
 
 function Test ({activeDialog}) {
   const {dispatch} = useContext(Context)
 
+  let dataLength = activeDialog.activeMessagesLength
+  // console.log('dataLength: ', dataLength)
+  let messages = activeDialog.activeMessages
+  // console.log('messages: ', messages)
+
   return (
-    <div>
-      <div id="scrollableDiv" 
-      style={{ height: '400px', backgroundColor: 'white', overflowY: 'scroll',  overflow: 'auto', display: 'flex', flexDirection: 'column-reverse', }}
+    <div id="scrollableDiv" 
+      style={{ 
+        height: '100%', 
+        backgroundColor: 'white', 
+        flexDirection: 'column-reverse', 
+      }}
+    >
+      <div className="label" style={{backgroundColor: 'red'}}>label</div>
+      <InfiniteScroll
+        className="InfiniteScroll"
+        style={{ 
+          display: 'flex', 
+          flexDirection: 'column',
+          flexDirection: 'column-reverse'
+        }}
+        // dataLength={dataLength}
+        dataLength={dataLength}
+        next={() => {
+          dispatch({type: 'LOAD_MORE_MESSAGES', add3: 3, id: activeDialog.activeUser.userId,})
+        }}
+        inverse={true}
+        hasMore={true}
+        scrollableTarget="scrollableDiv"
       >
-        <InfiniteScroll
-          style={{ display: 'flex', flexDirection: 'column-reverse' }}
-          dataLength={2}
-          next={() => {}}
-          inverse={true}
-          hasMore={true}
-          scrollableTarget="scrollableDiv"
-        >
-          {
-                <div style={style} key={1}>
-                  text
-                </div>
-          }
-        </InfiniteScroll>
-      </div>
+
+          <div className="test2">
+            {
+              messages.map((message, index) => {
+                return (
+                    <div key={index} className={
+                      activeDialog.activeUser.userId === message.messageAuthor ? `content__message incoming` : `content__message outgoing`
+                    }>
+                      <div className="content__message_text">
+                        {message.messageText}
+                      </div>
+                    </div>
+                )
+              })
+            }
+          </div>
+
+      </InfiniteScroll>
     </div>
   )
 }
 
 export default function ActiveDialog ({activeDialog}) {
   const {dispatch} = useContext(Context)
+
+  // console.log('activeDialog: ', activeDialog)
 
   // input
   const submitHandler = (e) => {
@@ -81,27 +106,9 @@ export default function ActiveDialog ({activeDialog}) {
       
       {/* MAIN */}
       <main className="activedialog__content">
-        <div className="activedialog__content_background"></div>
-          <div className="content__main">
-            {/* <Test activeDialog={activeDialog}/> */}
 
-            <div className="content__main_messages">
-              {
-                activeDialog.activeMessages.map((message, index) => {
-                  return (
-                    <div key={index} className={
-                      activeDialog.activeUser.userId === message.messageAuthor ? `content__message incoming` : `content__message outgoing`
-                    }>
-                      <div className="content__message_text">
-                        {message.messageText}
-                      </div>
-                    </div>
-                  )
-                })
-              }
-            </div>
+        <Test activeDialog={activeDialog}/>
 
-          </div>
       </main>
 
       {/* FOOTER */}

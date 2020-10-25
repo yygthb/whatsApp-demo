@@ -98,6 +98,46 @@ let dbDialogs = {
       messages: [
         {
           messageId: 123456,
+          messageText: '18 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 ',
+          messageAuthor: 3
+        },
+        {
+          messageId: 123456,
+          messageText: '17 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 ',
+          messageAuthor: 3
+        },
+        {
+          messageId: 123456,
+          messageText: '16 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 ',
+          messageAuthor: 3
+        },
+        {
+          messageId: 123456,
+          messageText: '15 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 ',
+          messageAuthor: 3
+        },
+        {
+          messageId: 123456,
+          messageText: '14 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 ',
+          messageAuthor: 3
+        },
+        {
+          messageId: 123456,
+          messageText: '13 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 ',
+          messageAuthor: 3
+        },
+        {
+          messageId: 123456,
+          messageText: '12 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 ',
+          messageAuthor: 3
+        },
+        {
+          messageId: 123456,
+          messageText: '11 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 ',
+          messageAuthor: 3
+        },
+        {
+          messageId: 123456,
           messageText: '10 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 some text from user 3 ',
           messageAuthor: 3
         },

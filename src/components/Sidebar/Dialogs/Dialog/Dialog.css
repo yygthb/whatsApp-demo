@@ -78,6 +78,7 @@
   font-size: 14px;
   opacity: .6;
   overflow: hidden;
+  /* overflow: auto; */
 }
 .contact__lastmessage_text.draft {
   color: var(--text--draft--color);
