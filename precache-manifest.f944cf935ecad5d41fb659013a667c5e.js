@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "eb46083dff608c01b4b4846880d9f340",
+    "revision": "260051f9a4d0f64125c680df9c8a683d",
     "url": "/whatsApp-demo/index.html"
   },
   {
-    "revision": "fda40085c3036e60a724",
+    "revision": "38afe3dc0c42efa850eb",
     "url": "/whatsApp-demo/static/css/main.5ec28cd5.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/whatsApp-demo/static/js/2.2a18a73c.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "fda40085c3036e60a724",
-    "url": "/whatsApp-demo/static/js/main.f0c59f4b.chunk.js"
+    "revision": "38afe3dc0c42efa850eb",
+    "url": "/whatsApp-demo/static/js/main.8ef7c13d.chunk.js"
   },
   {
     "revision": "e3294aa32b62464e8a6a",

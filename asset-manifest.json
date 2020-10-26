@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/whatsApp-demo/static/css/main.5ec28cd5.chunk.css",
-    "main.js": "/whatsApp-demo/static/js/main.f0c59f4b.chunk.js",
-    "main.js.map": "/whatsApp-demo/static/js/main.f0c59f4b.chunk.js.map",
+    "main.js": "/whatsApp-demo/static/js/main.8ef7c13d.chunk.js",
+    "main.js.map": "/whatsApp-demo/static/js/main.8ef7c13d.chunk.js.map",
     "runtime-main.js": "/whatsApp-demo/static/js/runtime-main.685e8599.js",
     "runtime-main.js.map": "/whatsApp-demo/static/js/runtime-main.685e8599.js.map",
     "static/js/2.2a18a73c.chunk.js": "/whatsApp-demo/static/js/2.2a18a73c.chunk.js",
     "static/js/2.2a18a73c.chunk.js.map": "/whatsApp-demo/static/js/2.2a18a73c.chunk.js.map",
     "index.html": "/whatsApp-demo/index.html",
-    "precache-manifest.b31b97c6c759edf7b87aa4b65e1a877a.js": "/whatsApp-demo/precache-manifest.b31b97c6c759edf7b87aa4b65e1a877a.js",
+    "precache-manifest.f944cf935ecad5d41fb659013a667c5e.js": "/whatsApp-demo/precache-manifest.f944cf935ecad5d41fb659013a667c5e.js",
     "service-worker.js": "/whatsApp-demo/service-worker.js",
     "static/css/main.5ec28cd5.chunk.css.map": "/whatsApp-demo/static/css/main.5ec28cd5.chunk.css.map",
     "static/js/2.2a18a73c.chunk.js.LICENSE.txt": "/whatsApp-demo/static/js/2.2a18a73c.chunk.js.LICENSE.txt",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.685e8599.js",
     "static/js/2.2a18a73c.chunk.js",
     "static/css/main.5ec28cd5.chunk.css",
-    "static/js/main.f0c59f4b.chunk.js"
+    "static/js/main.8ef7c13d.chunk.js"
   ]
 }
