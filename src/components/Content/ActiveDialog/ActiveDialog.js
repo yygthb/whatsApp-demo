@@ -1,43 +1,42 @@
-import React, {useContext, useEffect, useState} from 'react'
-import InfiniteScroll from "react-infinite-scroll-component";
+import React, {useContext} from 'react'
+// import InfiniteScroll from "react-infinite-scroll-component";
 import './ActiveDialog.css'
 
 import Context from '../../../context'
 import {sendMessageAC, updateNewMessageTextAC} from '../../../store/dialogsReducer'
 
-const style = {
-  height: 100,
-  border: "1px solid green",
-  margin: 20,
-  padding: 8,
-};
+// const style = {
+//   height: 100,
+//   border: "1px solid green",
+//   margin: 20,
+//   padding: 8,
+// };
 
-function Test ({activeDialog}) {
-  const {dispatch} = useContext(Context)
-
-  return (
-    <div>
-      <div id="scrollableDiv" 
-      style={{ height: '400px', backgroundColor: 'white', overflowY: 'scroll',  overflow: 'auto', display: 'flex', flexDirection: 'column-reverse', }}
-      >
-        <InfiniteScroll
-          style={{ display: 'flex', flexDirection: 'column-reverse' }}
-          dataLength={2}
-          next={() => {}}
-          inverse={true}
-          hasMore={true}
-          scrollableTarget="scrollableDiv"
-        >
-          {
-                <div style={style} key={1}>
-                  text
-                </div>
-          }
-        </InfiniteScroll>
-      </div>
-    </div>
-  )
-}
+// function Test ({activeDialog}) {
+//   const {dispatch} = useContext(Context)
+//   return (
+//     <div>
+//       <div id="scrollableDiv" 
+//       style={{ height: '400px', backgroundColor: 'white', overflowY: 'scroll',  overflow: 'auto', display: 'flex', flexDirection: 'column-reverse', }}
+//       >
+//         <InfiniteScroll
+//           style={{ display: 'flex', flexDirection: 'column-reverse' }}
+//           dataLength={2}
+//           next={() => {}}
+//           inverse={true}
+//           hasMore={true}
+//           scrollableTarget="scrollableDiv"
+//         >
+//           {
+//                 <div style={style} key={1}>
+//                   text
+//                 </div>
+//           }
+//         </InfiniteScroll>
+//       </div>
+//     </div>
+//   )
+// }
 
 export default function ActiveDialog ({activeDialog}) {
   const {dispatch} = useContext(Context)

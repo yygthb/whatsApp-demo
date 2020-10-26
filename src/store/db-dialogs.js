@@ -1,7 +1,7 @@
 // dialogs database
 
-import faker, { lorem } from 'faker'
-import config from '../config'
+import faker from 'faker'
+// import config from '../config'
 
 let dbDialogs = {
   dialogs: [
