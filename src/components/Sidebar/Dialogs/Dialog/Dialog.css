@@ -114,3 +114,25 @@
 .dialog__wrap:hover .dialog__settings_mark {
   display: block;
 }
+
+
+/* Media */
+@media only screen and (max-width: 1150px) {
+  .contact__info_date {
+    /* display: none; */
+    font-size: 10px;
+  }
+  .contact__info_userName {
+    font-size: 18px;
+  }
+}
+@media only screen and (max-width: 1050px) {
+  .contact__lastmessage_text {
+    /* display: none */
+    width: 190px;
+    height: 16px;
+  }
+  .contact__info_date {
+    display: none;
+  }
+}
