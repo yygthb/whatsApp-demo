@@ -21,7 +21,7 @@ export default function Profile() {
   }
   function saveProfileName (e) {
     e.preventDefault()
-    if (profileName !== '') {
+    if (profileName.trim()) {
       dispatch(saveProfileNameAC(profileName))
       setDisabledName(true)
     }

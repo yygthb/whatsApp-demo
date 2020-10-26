@@ -28,7 +28,7 @@ export default function dialogsReducer (state, action) {
       })
       return state
     case SEND_NEW_MESSAGE:
-      if (action.text !== '') {
+      if (action.text.trim()) {
         state.forEach(dialog => {
           if (dialog.userInfo.userId === action.id) {
             dialog.messages.unshift({
