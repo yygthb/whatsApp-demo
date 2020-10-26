@@ -4,8 +4,10 @@ import './Header.css'
 
 import {openSidebarModalAC} from '../../../store/sidebarModalReducer'
 
+import profileAvatar from '../../../img/wick.jpg'
+
 const Header = () => {
-  const {profile, dispatch} = useContext(Context)
+  const {dispatch} = useContext(Context)
 
   const menuModal = ['Profile', 'Settings', 'New Group']
   const [menuModalVisible, setMenuModalVisible] = useState('menu__modal')
@@ -41,7 +43,7 @@ const Header = () => {
     <div className="header">
       <div 
         className="profile__foto" 
-        style={{background: `center / contain no-repeat url(${profile.avatar})`}}
+        style={{background: `center / contain no-repeat url(${profileAvatar})`}}
         onClick={() => dispatch(openSidebarModalAC('Profile'))}
       ></div>
       <div className="profile__control">

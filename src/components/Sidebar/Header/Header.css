@@ -13,6 +13,8 @@
   border-radius: 50%;
   background-color: var(--background-top-color);
   cursor: pointer;
+
+  /* background: center / contain no-repeat url("../../../img/wick.jpg"); */
 }
 
 .profile__control {

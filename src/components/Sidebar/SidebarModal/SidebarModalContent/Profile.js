@@ -5,6 +5,8 @@ import Input from './ProfileInputWrap'
 
 import {saveProfileNameAC, saveProfileStatusAC} from '../../../../store/profileReducer'
 
+import profileAvatar from '../../../../img/wick.jpg'
+
 export default function Profile() {
   const {profile, dispatch} = useContext(Context)
 
@@ -51,7 +53,7 @@ export default function Profile() {
         <div 
           className="profile__avatar_img"
           title="change avatar"
-          style={{background: `center / contain no-repeat url(${profile.avatar})`}}
+          style={{background: `center / contain no-repeat url(${profileAvatar})`}}
         ></div>
       </div>
       <div className="profile__name">

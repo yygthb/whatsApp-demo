@@ -1,5 +1,3 @@
-// import faker from 'faker'
-
 import config from '../config'
 import dbDialogs from './db-dialogs'
 
