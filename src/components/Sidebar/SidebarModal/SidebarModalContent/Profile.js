@@ -21,8 +21,10 @@ export default function Profile() {
   }
   function saveProfileName (e) {
     e.preventDefault()
-    dispatch(saveProfileNameAC(profileName))
-    setDisabledName(true)
+    if (profileName !== '') {
+      dispatch(saveProfileNameAC(profileName))
+      setDisabledName(true)
+    }
   }
 
   function editProfileStatus () {
