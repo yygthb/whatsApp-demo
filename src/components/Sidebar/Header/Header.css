@@ -19,26 +19,65 @@
   display: flex;
 }
 
-.profile__control div {
+.profile__control > div {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   margin-left: 10px;
-  opacity: .5;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
 }
-.profile__control div:active {
+.profile__control svg {
+  opacity: .5;
+}
+.profile__control span {
+  opacity: .5;
+}
+.profile__control > div:active {
   background-color: var(--header-control-background);
 }
-.profile__control div:nth-child(1) {
+.profile__control > div:nth-child(1) {
   margin-left: 0px;
 }
-.profile__control div:nth-child(1) span {
+.profile__control > div:nth-child(1) span {
   width: 21px;
   height: 21px;
   border-radius: 50%;
   border: 2px solid black;
+}
+
+.button__menu {
+  position: relative;
+}
+
+.menu__modal {
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 20px;
+  left: 25px;
+  width: 100px;
+  height: 85px;
+}
+.menu__modal.open {
+  visibility: visible;
+}
+.menu__modal > li {
+  list-style: none;
+  padding: 4px;
+  border: 1px solid gray;
+  color: gray;
+  border-bottom: 0;
+  background: white;
+  z-index: 1000;
+}
+.menu__modal > li:last-child {
+  border-bottom: 1px solid gray;
+  background-color: white;
+}
+.menu__modal > li:hover {
+  background-color: lightblue;
 }
