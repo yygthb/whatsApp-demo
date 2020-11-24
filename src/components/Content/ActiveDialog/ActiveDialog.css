@@ -27,7 +27,9 @@
   height: 40px;
   border-radius: 50%;
   margin-right: 16px;
-  background-color: var(--background-top-color) !important;
+  background: center / contain no-repeat url('../../../img/avatar-default.png');
+  /* background-color: var(--background-top-color) !important; */
+  background-color: transparent !important;
 }
 
 .header__user_info {

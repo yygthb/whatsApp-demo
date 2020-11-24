@@ -55,7 +55,8 @@ export default function ActiveDialog ({activeDialog}) {
       <header className="activedialog__header">
         <div className="header__user">
           <div className="header__user_avatar" 
-        style={{background: `center / contain no-repeat url(${activeDialog.activeUser.userAvatar})`}}></div>
+        // style={{background: `center / contain no-repeat url(${activeDialog.activeUser.userAvatar})`}}
+        ></div>
           <div className="header__user_info">
             <div  className="header__user_name">{activeDialog.activeUser.userName}</div>
             <div  className="header__user_seen">last seen "date"</div>

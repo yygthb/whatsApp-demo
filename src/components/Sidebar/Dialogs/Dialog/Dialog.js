@@ -40,7 +40,8 @@ const Dialog = ({dialog, colorDialogId, dispatch}) => {
       dispatch(getActiveDialogIdAC(dialog.userInfo.userId))
     }}>
       <div className="contact__avatar" 
-        style={{background: `center / contain no-repeat url(${dialog.userInfo.userAvatar})`}}></div>
+        // style={{background: `center / contain no-repeat url(${dialog.userInfo.userAvatar})`}}
+        ></div>
       <div className="contact__info">
         <div className="contact__info_wrap">
           <div className="contact__info_header">
